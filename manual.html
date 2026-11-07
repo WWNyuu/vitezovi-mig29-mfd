@@ -175,7 +175,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
   <nav aria-label="Site">
     <a href="./">Overview</a>
     <a href="manual.html" aria-current="page">Pilot manual</a>
-    <a href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.7.3.zip">Download v1.7.3</a>
+    <a href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.7.4.zip">Download v1.7.4</a>
     <a href="https://files.digitalcombatsimulator.com/en/files/3350140/">KRN's cockpit mod</a>
   </nav>
 </div></header>
@@ -183,7 +183,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
   <aside class="toc" aria-label="Contents"><b>Contents</b><ol><li><a href="#before-you-fly">Before you fly</a></li><li><a href="#power-and-start-up">Power and start-up</a></li><li><a href="#the-bezel">The bezel</a></li><li><a href="#menu-and-moving-between-pages">MENU and moving between pages</a></li><li><a href="#sa-page">SA page</a></li><li><a href="#picture-and-intc">PICTURE and INTC</a></li><li><a href="#nav-page">NAV page</a></li><li><a href="#hsi-com-nav-fpas-sms-flt-and-rwr">HSI, COM/NAV, FPAS, SMS, FLT and RWR</a></li><li><a href="#ufcp-buttons-and-the-stp-switch">UFCP buttons and the STP switch</a></li><li><a href="#data-cartridges-drawings-and-the-dtc-planner">Data cartridges, drawings and the DTC Planner</a></li><li><a href="#using-the-dtc-planner">Using the DTC Planner</a></li><li><a href="#options-settings-and-troubleshooting">Options, settings and troubleshooting</a></li></ol></aside>
   <article class="doc">
     <h1>Vitezovi MiG-29 MFD Pilot Manual</h1>
-    <p>How to fly with the Vitezovi MiG-29 MFD add-on v1.7.3: one MFD with situational awareness, navigation, intercept, fuel, stores and RWR pages, on top of KRN MODS' MiG-29A(M) Cockpit Modernization.</p>
+    <p>How to fly with the Vitezovi MiG-29 MFD add-on v1.7.4: one MFD with situational awareness, navigation, intercept, fuel, stores and RWR pages, on top of KRN MODS' MiG-29A(M) Cockpit Modernization.</p>
 <h2 id="before-you-fly">Before you fly</h2>
 <p>You need two things installed before the add-on: the DCS MiG-29A Fulcrum module and KRN MODS' "MiG-29A(M) Cockpit Modernization" V1.0.3, unzipped into <code>Saved Games\DCS\Mods\tech</code> as KRN describes.</p>
 <p>Download KRN's mod from its release page: <a href="https://files.digitalcombatsimulator.com/en/files/3350140/">MiG-29A(M) Cockpit Modernization on DCS User Files</a>.</p>
@@ -196,6 +196,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 </ol>
 <p><strong>Remove:</strong> double-click <code>UNINSTALL.bat</code>. KRN's original files come back and KRN's mod works on its own.</p>
 <p><strong>If the installer says KRN's files are not originals</strong> (another KRN version, or the old all-in-one Vitezovi package): delete KRN's folder, unzip KRN's mod again, run <code>INSTALL.bat</code> again.</p>
+<p><strong>HOTAS binds:</strong> <code>INSTALL.bat</code> also adds every MFD and UFCP button of the add-on to the MiG-29's own controls: Options &gt; Controls &gt; MiG-29, category <strong>Vitezovi MFD</strong> (56 controls: POWER, all bezel buttons, BRT, DAY / NIGHT, SYM, the UFCP keypad, MRK / DIR / NAV, the STP switch and KRN's other UFCP buttons). A bind does exactly what a click on the button does. A DCS update or repair takes them out of the list again: run <code>INSTALL.bat</code> again (the start-up test then shows NO HOTAS BINDS on the UFCP LINK line); your own assignments come back with them. With DCS under <code>C:\Program Files</code>, right-click <code>INSTALL.bat</code> &gt; Run as administrator for the binds. If the installer says it did not find DCS's install folder, open a command prompt in the add-on folder and run <code>INSTALL.bat -DcsPath "D:\DCS World"</code> (your DCS folder).</p>
 <p><strong>Updating KRN's mod later:</strong> uninstall the add-on first, update KRN, then install the add-on version made for that KRN version.</p>
 <p><strong>Test missions</strong> (installed to <code>Saved Games\DCS\Missions</code>):</p>
 <ul>
