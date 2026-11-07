@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MiG-29 WW MFD</title>
+<meta name="description" content="A modern MFD add-on for the DCS MiG-29A Fulcrum on KRN MODS' cockpit modernization: datalink SA page, intercept steering, navigation with time on target, fuel planning, stores, RWR and a full power-up sequence.">
+<meta property="og:title" content="MiG-29 WW MFD - Vitezovi add-on for DCS">
+<meta property="og:description" content="Datalink SA page, PICTURE and intercept, NAV with time on target, FPAS, SMS, RWR and a full power-up sequence for KRN MODS' MiG-29A(M) cockpit.">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/x12.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=Share+Tech+Mono&display=swap">
+<style>
+/* Layout: a squadron technical bulletin - a document-control strip, then numbered figure plates (SL.) of the real MFD, image and text side by side, a spec sheet and a revision table. */
+:root {
+  --paper: #eceef0;
+  --sheet: #f7f8f9;
+  --ink: #1b2537;
+  --ink-2: #4a5568;
+  --rule: #c5cbd3;
+  --red: #b8323f;
+  --blue: #2f5aa3;
+  --screen: #0b0f12;
+  --display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "Share Tech Mono", ui-monospace, "Consolas", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #10151f; --sheet: #161d2a; --ink: #e3e7ee; --ink-2: #a3adbd; --rule: #2c3647;
+    --red: #e26a74; --blue: #7aa2e6; --screen: #05080a; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #10151f; --sheet: #161d2a; --ink: #e3e7ee; --ink-2: #a3adbd; --rule: #2c3647;
+  --red: #e26a74; --blue: #7aa2e6; --screen: #05080a; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font: 16px/1.6 var(--body); margin: 0; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; letter-spacing: .01em; text-wrap: balance; margin: 0; line-height: 1.05; }
+p { margin: 0; max-width: 62ch; }
+.mono { font-family: var(--mono); }
+img { display: block; max-width: 100%; height: auto; }
+
+/* document control strip */
+.ctrl { border-bottom: 1px solid var(--rule); font-family: var(--mono); font-size: 13px; color: var(--ink-2); }
+.ctrl .wrap { display: flex; flex-wrap: wrap; gap: 8px 28px; padding-block: 12px; }
+.ctrl b { color: var(--ink); font-weight: 400; }
+
+/* hero */
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 48px; padding-block: 56px 48px; align-items: center; }
+.eyebrow { font-family: var(--mono); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--red); }
+.hero h1 { font-size: clamp(52px, 8vw, 96px); text-transform: uppercase; margin-top: 12px; }
+.hero h1 span { color: var(--blue); }
+.hero .lead { font-size: 19px; margin-top: 20px; color: var(--ink); }
+.hero .req { margin-top: 24px; padding: 14px 16px; border-left: 3px solid var(--red); background: var(--sheet); font-size: 15px; color: var(--ink-2); max-width: 62ch; }
+.hero .req strong { color: var(--ink); }
+.hero figure { margin: 0; }
+.shot { background: var(--screen); border-radius: 6px; overflow: hidden; border: 1px solid var(--rule); }
+figcaption { font-family: var(--mono); font-size: 13px; color: var(--ink-2); margin-top: 10px; }
+figcaption b { color: var(--red); font-weight: 400; margin-right: 8px; }
+
+/* spec sheet */
+.specs { border-block: 1px solid var(--rule); background: var(--sheet); }
+.specs .wrap { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); padding-block: 0; }
+.spec { padding: 22px 16px 20px 0; border-right: 1px solid var(--rule); padding-left: 16px; }
+.spec:first-child { padding-left: 0; }
+.spec:last-child { border-right: 0; }
+.spec .v { white-space: nowrap; font-family: var(--display); font-size: clamp(28px, 3.2vw, 40px); font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
+.spec .v small { font-size: 18px; color: var(--ink-2); margin-left: 3px; }
+.spec .k { font-size: 13px; color: var(--ink-2); margin-top: 8px; line-height: 1.35; }
+
+/* plates */
+.section-head { padding-block: 72px 8px; display: flex; gap: 16px; align-items: baseline; flex-wrap: wrap; }
+.section-head h2 { font-size: clamp(34px, 5vw, 48px); text-transform: uppercase; }
+.section-head .mono { color: var(--red); font-size: 14px; }
+.plate { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; padding-block: 40px; border-top: 1px solid var(--rule); align-items: start; }
+.plate:first-of-type { border-top: 0; }
+.plate.flip .media { order: 2; }
+.plate h3 { font-size: 30px; text-transform: uppercase; margin-bottom: 14px; }
+.plate p + p { margin-top: 12px; }
+.plate ul { margin: 16px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.plate li { padding-left: 22px; position: relative; max-width: 60ch; }
+.plate li::before { content: ""; position: absolute; left: 0; top: .72em; width: 10px; height: 2px; background: var(--red); }
+.btns { font-family: var(--mono); font-size: 14px; color: var(--blue); }
+.pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+.trio { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; padding-block: 8px 40px; }
+.trio figure { margin: 0; }
+.trio p { font-size: 15px; color: var(--ink-2); margin-top: 6px; }
+.trio h3 { font-size: 22px; text-transform: uppercase; margin-top: 14px; }
+
+/* install */
+.install { background: var(--sheet); border-block: 1px solid var(--rule); margin-top: 72px; }
+.install .wrap { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 48px; padding-block: 56px; }
+.install h2 { font-size: clamp(34px, 5vw, 48px); text-transform: uppercase; }
+.steps { list-style: none; margin: 0; padding: 0; counter-reset: s; display: grid; gap: 18px; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 12px; }
+.steps li::before { content: counter(s); font-family: var(--display); font-size: 34px; font-weight: 600; color: var(--red); line-height: 1; }
+.steps b { display: block; font-weight: 600; }
+.steps span { color: var(--ink-2); font-size: 15px; }
+
+/* revisions */
+.rev-wrap { overflow-x: auto; margin-top: 24px; }
+table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 15px; }
+th, td { text-align: left; padding: 12px 16px 12px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-family: var(--mono); font-weight: 400; font-size: 13px; color: var(--ink-2); text-transform: uppercase; letter-spacing: .08em; }
+td:first-child { font-family: var(--mono); color: var(--red); white-space: nowrap; width: 72px; }
+.credits { padding-block: 56px 72px; display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 32px; align-items: center; }
+.credits img { width: 120px; }
+.credits p { color: var(--ink-2); font-size: 15px; }
+.credits p + p { margin-top: 8px; }
+
+@media (max-width: 860px) {
+  .hero .wrap, .plate, .install .wrap { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .plate.flip .media { order: 0; }
+  .specs .wrap { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .spec:nth-child(3) { border-right: 0; }
+  .spec:nth-child(n+4) { border-top: 1px solid var(--rule); }
+  .spec:nth-child(4) { padding-left: 0; }
+  .trio { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 480px) {
+  .specs .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .spec { border-right: 0; padding-left: 0; }
+  .spec:nth-child(n+3) { border-top: 1px solid var(--rule); }
+  .pair { grid-template-columns: minmax(0, 1fr); }
+  .credits { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* site navigation and download buttons (GitHub Pages) */
+.site-nav { background: var(--sheet); border-bottom: 1px solid var(--rule); }
+.site-nav .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; justify-content: space-between; padding-block: 10px; }
+.site-nav .brand { font-family: var(--display); font-weight: 600; font-size: 20px; text-transform: uppercase; letter-spacing: .02em; color: var(--ink); text-decoration: none; }
+.site-nav nav { display: flex; flex-wrap: wrap; gap: 6px 20px; font-family: var(--mono); font-size: 14px; }
+.site-nav nav a { color: var(--ink-2); text-decoration: none; }
+.site-nav nav a:hover, .site-nav nav a[aria-current] { color: var(--blue); }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 4px; font-family: var(--mono); font-size: 15px; text-decoration: none; border: 1px solid var(--blue); color: var(--blue); }
+.btn.primary { background: var(--blue); color: var(--paper); }
+.btn small { opacity: .8; font-size: 12px; }
+.btn:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+</style>
+</head>
+<body>
+
+
+
+<header class="site-nav"><div class="wrap">
+  <a class="brand" href="./">MiG-29 WW MFD</a>
+  <nav aria-label="Site">
+    <a href="./" aria-current="page">Overview</a>
+    <a href="manual.html">Pilot manual</a>
+    <a href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.7.1.zip">Download v1.7.1</a>
+    <a href="https://files.digitalcombatsimulator.com/en/files/3350140/">KRN's cockpit mod</a>
+  </nav>
+</div></header>
+<div class="ctrl"><div class="wrap">
+  <span>BULLETIN <b>127 FAS / MFD-1</b></span>
+  <span>REV <b>1.7.1</b></span>
+  <span>AIRCRAFT <b>MiG-29A FULCRUM</b></span>
+  <span>BASE <b>KRN MODS COCKPIT MODERNIZATION V1.0.3</b></span>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <div>
+    <div class="eyebrow">127th Vitezovi FAS · Wild Wolves</div>
+    <h1>MiG-29 WW <span>MFD</span></h1>
+    <p class="lead">A modern multifunction display for the MiG-29A in DCS: a datalink situation page, intercept steering, route navigation with time on target, fuel planning, stores, RWR and a full power-up sequence. All of it runs on the retrofit MFD of KRN MODS' modernized cockpit.</p>
+    <p class="req"><strong>Add-on, not a replacement.</strong> Needs the DCS MiG-29A Fulcrum module and KRN MODS' "MiG-29A(M) Cockpit Modernization" V1.0.3, which you <a href="https://files.digitalcombatsimulator.com/en/files/3350140/" style="color:var(--blue)">download from KRN on the DCS User Files</a>. The physical MFD, buttons and UFCP are KRN's work; this add-on brings the pages and is shared with KRN's agreement.</p>
+    <div class="cta">
+      <a class="btn primary" href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.7.1.zip">Download add-on v1.7.1 <small>ZIP · 13 MB</small></a>
+      <a class="btn" href="manual.html">Pilot manual</a>
+    </div>
+  </div>
+  <figure>
+    <div class="shot"><img src="img/x00.jpg" alt="The MFD's MENU page in the cockpit: MIG-29 WW title, the Wild Wolves squadron badge and the page labels SA, NAV, HSI, COM/NAV, FPAS, SMS, FLT, RWR" width="900" height="1057"></div>
+    <figcaption><b>SL. 1</b>MENU page, in the cockpit</figcaption>
+  </figure>
+</div></header>
+
+<section class="specs" aria-label="Key figures"><div class="wrap">
+  <div class="spec"><div class="v">10</div><div class="k">MFD pages, plus start-up and cartridge choice</div></div>
+  <div class="spec"><div class="v">20–320<small>km</small></div><div class="k">SA page range, 5 steps</div></div>
+  <div class="spec"><div class="v">12</div><div class="k">DCS maps with a moving chart behind the SA page</div></div>
+  <div class="spec"><div class="v">40</div><div class="k">route points drawn on the SA page</div></div>
+  <div class="spec"><div class="v">16<small>s</small></div><div class="k">cold-start boot to the cartridge choice</div></div>
+  <div class="spec"><div class="v">0</div><div class="k">KRN files in the download: the installer patches your own copy</div></div>
+</div></section>
+
+<main class="wrap">
+  <div class="section-head"><h2>The pages</h2><span class="mono">SL. 2 – SL. 9</span></div>
+
+  <article class="plate">
+    <figure class="media">
+      <div class="shot"><img src="img/x01.jpg" alt="SA page: range circle with SA-11 and SA-6 threat rings, contacts and the flight's route" width="760" height="717"></div>
+      <figcaption><b>SL. 2</b>SA page, 160 km, SA-11 and SA-6 rings</figcaption>
+    </figure>
+    <div>
+      <h3>Situation awareness</h3>
+      <p>A heading-up picture around your jet in the style of the F-15 SIT page. Friendlies, hostiles and your flight come over a simulated datalink built from what DCS exports, with sensor range, radar horizon and terrain taken into account.</p>
+      <ul>
+        <li>Ground threats as rings, your route, markpoints and the cartridge's FLOT, borders and areas.</li>
+        <li>H1–H5 put the cursor on the nearest five hostiles; the datablock gives bearing, range, bullseye, altitude and type.</li>
+        <li>EXP zooms around a contact and follows it; the SYM rocker declutters in five steps.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="plate flip">
+    <figure class="media">
+      <div class="shot"><img src="img/x02.jpg" alt="SA page over the DCS aeronautical chart of the Caucasus" width="760" height="782"></div>
+      <figcaption><b>SL. 3</b>Moving map, Caucasus chart</figcaption>
+    </figure>
+    <div>
+      <h3>Moving map</h3>
+      <p>DCS's own aeronautical charts turn and slide under the symbols as you fly. Nothing is copied: the add-on reads the charts already in your DCS install, for Caucasus, Syria, Persian Gulf, Sinai, Iraq, Afghanistan, Nevada, the Marianas, South Atlantic, Germany Cold War and Kola.</p>
+      <p>One option in DCS's Special settings turns it on; the MAP button hides it in flight.</p>
+    </div>
+  </article>
+
+  <article class="plate">
+    <figure class="media">
+      <div class="pair">
+        <div class="shot"><img src="img/x03.jpg" alt="PICTURE page listing two hostile groups with bullseye, BRAA, altitude, size and aspect, a written call and a plot" width="760" height="714"></div>
+        <div class="shot"><img src="img/x04.jpg" alt="SA page with intercept steering on an Su-27: collision course, time to intercept and fuel at the meeting point" width="760" height="810"></div>
+      </div>
+      <figcaption><b>SL. 4</b>PICTURE page · <b>SL. 5</b>INTC on a hot Su-27</figcaption>
+    </figure>
+    <div>
+      <h3>Picture and intercept</h3>
+      <p>PICTURE groups the contacts into formations, nearest first, and writes the call out for you: <span class="mono">BULLS 066/93, 7000, FLANK W, HOSTILE, 2 SHIP SU-27.</span> CALL switches between bullseye and BRAA.</p>
+      <p>INTC solves the collision course to a target and puts it on a heading tape: steer the diamond to the centre and you meet head-on. The readout gives time to intercept, closure and the fuel you will have when you get there.</p>
+      <p class="btns">Advisory only: the autopilot, HUD, radar and weapons stay stock.</p>
+    </div>
+  </article>
+
+  <article class="plate flip">
+    <figure class="media">
+      <div class="shot"><img src="img/x05.jpg" alt="NAV page: steerpoint, bearing and range, steering bar with command heading and the route list" width="760" height="759"></div>
+      <figcaption><b>SL. 6</b>NAV page, cartridge VITEZOVI FLIGHT 40</figcaption>
+    </figure>
+    <div>
+      <h3>Navigation and time on target</h3>
+      <p>The NAV page flies the cartridge's whole route, not just the jet's three waypoints. A steering bar gives the command heading back onto the planned leg, and every bearing on the SA page, HSI and UFCP is the same true value.</p>
+      <ul>
+        <li>Times on target on any number of points, with the speed to fly on each leg and a speed cue.</li>
+        <li>One cartridge for the whole flight: tag points by member number and each pilot picks his route.</li>
+        <li>Typed-in waypoints in lat/long or MGRS, direct-to, auto sequencing and RSBN stations in range.</li>
+      </ul>
+    </div>
+  </article>
+
+  <div class="trio">
+    <figure>
+      <div class="shot"><img src="img/x06.jpg" alt="HSI page with compass rose, heading 040, course arrow and TACAN" width="760" height="786"></div>
+      <figcaption><b>SL. 7</b>HSI</figcaption>
+      <h3>HSI</h3>
+      <p>NATO-style HSI with heading bug, course and TACAN entered on the UFCP keypad.</p>
+    </figure>
+    <figure>
+      <div class="shot"><img src="img/x07.jpg" alt="FPAS page: fuel 2886 kg, time and range to 500 kg, best range and endurance, bingo and home" width="760" height="663"></div>
+      <figcaption><b>SL. 8</b>FPAS</figcaption>
+      <h3>Fuel planning</h3>
+      <p>Range and time to 500 kg, best range and endurance, bingo, and fuel on arrival at home.</p>
+    </figure>
+    <figure>
+      <div class="shot"><img src="img/x08.jpg" alt="FLT page: adding friendly aircraft, players first, to your flight" width="760" height="898"></div>
+      <figcaption><b>SL. 9</b>FLT</figcaption>
+      <h3>Flight, stores, RWR</h3>
+      <p>Your flight's positions and status, every station's stores, and the SPO-15 picture with launch warnings.</p>
+    </figure>
+  </div>
+
+  <div class="section-head"><h2>Power-up</h2><span class="mono">SL. 10 – SL. 12</span></div>
+  <article class="plate">
+    <figure class="media">
+      <div class="pair">
+        <div class="shot"><img src="img/x09.gif" alt="Animated start-up: screen test grid, boot ROM text, software boot log and the squadron badge" width="450" height="575"></div>
+        <div class="shot"><img src="img/x10.jpg" alt="Built-in test checklist with GO lines and the aligned latitude and longitude" width="484" height="704"></div>
+      </div>
+      <figcaption><b>SL. 10</b>Boot sequence · <b>SL. 11</b>Built-in test</figcaption>
+    </figure>
+    <div>
+      <h3>A display that starts like a real one</h3>
+      <p>The MFD runs on the jet's DC power. On a cold start it stays dark until the battery is on and you press PWR. Then it boots: screen test, boot ROM, software log, the squadron badge, a built-in test checklist with your aligned position, and the cartridge choice.</p>
+      <ul>
+        <li>Hold PWR for 2 seconds to switch off; it cannot be knocked off by accident.</li>
+        <li>A short power blink keeps your page; a real power loss, like a rearm, means a full restart.</li>
+        <li>Hot and air starts come up already running.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="plate flip">
+    <figure class="media">
+      <div class="shot" style="max-width:420px"><img src="img/x11.jpg" alt="SELECT CARTRIDGE screen: cartridge cards, a route preview with points and FLOT, and what the cartridge holds" width="484" height="704"></div>
+      <figcaption><b>SL. 12</b>Cartridge choice after the BIT</figcaption>
+    </figure>
+    <div>
+      <h3>Cartridges and the DTC Planner</h3>
+      <p>Pick the mission's data cartridge right after start-up: route preview, flight members, radio presets and drawings at a glance. Cartridges are DCS's own MiG-29 .dtc files, so the jet's navigation gets its waypoints, airfields and RSBN at the same time.</p>
+      <p>The Vitezovi DTC Planner comes with it: one offline HTML file with every DCS map built in. Plan routes, threat rings, FLOT and CAP areas, and save the cartridge with its drawings.</p>
+    </div>
+  </article>
+</main>
+
+<section class="install"><div class="wrap">
+  <div>
+    <h2>Install</h2>
+    <p style="margin-top:16px;color:var(--ink-2)">The add-on contains none of KRN's files. Its installer checks your copy of KRN's mod, keeps the originals and adds what the pages need. Uninstalling puts KRN's mod back exactly as it was.</p>
+  </div>
+  <ol class="steps">
+    <li><div><b>Install KRN's mod</b><span>MiG-29A(M) Cockpit Modernization V1.0.3 from KRN MODS (<a href="https://files.digitalcombatsimulator.com/en/files/3350140/" style="color:var(--blue)">DCS User Files</a>), into Saved Games\DCS\Mods\tech.</span></div></li>
+    <li><div><b>Run INSTALL.bat</b><span><a href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.7.1.zip" style="color:var(--blue)">Download the add-on</a>, unzip it anywhere and double-click INSTALL.bat. Close DCS first.</span></div></li>
+    <li><div><b>Fly</b><span>Battery on, press PWR on the MFD's top-left rocker, choose a cartridge. The <a href="manual.html" style="color:var(--blue)">pilot manual</a> explains every page.</span></div></li>
+  </ol>
+</div></section>
+
+<section class="wrap">
+  <div class="section-head"><h2>Revisions</h2></div>
+  <div class="rev-wrap">
+    <table>
+      <thead><tr><th>Rev</th><th>Added</th></tr></thead>
+      <tbody>
+        <tr><td>1.7.1</td><td>POWER button fix for PCs that send the button's press and release with other values</td></tr>
+        <tr><td>1.7</td><td>Display power from the jet, PWR button, boot sequence, built-in test, cartridge choice; published as an add-on to KRN's mod</td></tr>
+        <tr><td>1.6</td><td>PICTURE page, INTC intercept steering, one true steering solution for every display, separate EXP zoom</td></tr>
+        <tr><td>1.5</td><td>Threat rings, FLOT, borders and areas drawn from the cartridge</td></tr>
+        <tr><td>1.4</td><td>NAV page with steering, member routes, typed-in waypoints, UFCP MRK / DIR / NAV keys</td></tr>
+        <tr><td>1.3</td><td>Time on target with leg speeds and fuel at each TOT</td></tr>
+        <tr><td>1.2</td><td>SA declutter, COM/NAV page, quick return to the last page</td></tr>
+        <tr><td>1.1</td><td>RWR and stores pages, markpoints, bingo, launch and bingo alerts, moving map</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="credits">
+    <img src="img/x12.png" alt="127th Vitezovi FAS Wild Wolves squadron badge" width="360" height="360">
+    <div>
+      <p>MFD pages, start-up, datalink and DTC Planner: the 127th Vitezovi FAS "Wild Wolves".</p>
+      <p>MiG-29A(M) Cockpit Modernization (the MFD, UFCP and their model and textures): KRN MODS. DCS World and the MiG-29A Fulcrum: Eagle Dynamics. MFD font: Share Tech Mono (SIL Open Font License).</p>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

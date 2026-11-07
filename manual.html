@@ -1,0 +1,856 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pilot Manual - MiG-29 WW MFD</title>
+<meta name="description" content="Pilot manual for the Vitezovi MiG-29 MFD add-on: power and start-up, every MFD page with annotated pictures, cartridges, options and troubleshooting.">
+<link rel="icon" href="img/x12.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=Share+Tech+Mono&display=swap">
+<style>
+/* Layout: a squadron technical bulletin - a document-control strip, then numbered figure plates (SL.) of the real MFD, image and text side by side, a spec sheet and a revision table. */
+:root {
+  --paper: #eceef0;
+  --sheet: #f7f8f9;
+  --ink: #1b2537;
+  --ink-2: #4a5568;
+  --rule: #c5cbd3;
+  --red: #b8323f;
+  --blue: #2f5aa3;
+  --screen: #0b0f12;
+  --display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "Share Tech Mono", ui-monospace, "Consolas", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #10151f; --sheet: #161d2a; --ink: #e3e7ee; --ink-2: #a3adbd; --rule: #2c3647;
+    --red: #e26a74; --blue: #7aa2e6; --screen: #05080a; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #10151f; --sheet: #161d2a; --ink: #e3e7ee; --ink-2: #a3adbd; --rule: #2c3647;
+  --red: #e26a74; --blue: #7aa2e6; --screen: #05080a; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font: 16px/1.6 var(--body); margin: 0; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; letter-spacing: .01em; text-wrap: balance; margin: 0; line-height: 1.05; }
+p { margin: 0; max-width: 62ch; }
+.mono { font-family: var(--mono); }
+img { display: block; max-width: 100%; height: auto; }
+
+/* document control strip */
+.ctrl { border-bottom: 1px solid var(--rule); font-family: var(--mono); font-size: 13px; color: var(--ink-2); }
+.ctrl .wrap { display: flex; flex-wrap: wrap; gap: 8px 28px; padding-block: 12px; }
+.ctrl b { color: var(--ink); font-weight: 400; }
+
+/* hero */
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 48px; padding-block: 56px 48px; align-items: center; }
+.eyebrow { font-family: var(--mono); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--red); }
+.hero h1 { font-size: clamp(52px, 8vw, 96px); text-transform: uppercase; margin-top: 12px; }
+.hero h1 span { color: var(--blue); }
+.hero .lead { font-size: 19px; margin-top: 20px; color: var(--ink); }
+.hero .req { margin-top: 24px; padding: 14px 16px; border-left: 3px solid var(--red); background: var(--sheet); font-size: 15px; color: var(--ink-2); max-width: 62ch; }
+.hero .req strong { color: var(--ink); }
+.hero figure { margin: 0; }
+.shot { background: var(--screen); border-radius: 6px; overflow: hidden; border: 1px solid var(--rule); }
+figcaption { font-family: var(--mono); font-size: 13px; color: var(--ink-2); margin-top: 10px; }
+figcaption b { color: var(--red); font-weight: 400; margin-right: 8px; }
+
+/* spec sheet */
+.specs { border-block: 1px solid var(--rule); background: var(--sheet); }
+.specs .wrap { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); padding-block: 0; }
+.spec { padding: 22px 16px 20px 0; border-right: 1px solid var(--rule); padding-left: 16px; }
+.spec:first-child { padding-left: 0; }
+.spec:last-child { border-right: 0; }
+.spec .v { white-space: nowrap; font-family: var(--display); font-size: clamp(28px, 3.2vw, 40px); font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
+.spec .v small { font-size: 18px; color: var(--ink-2); margin-left: 3px; }
+.spec .k { font-size: 13px; color: var(--ink-2); margin-top: 8px; line-height: 1.35; }
+
+/* plates */
+.section-head { padding-block: 72px 8px; display: flex; gap: 16px; align-items: baseline; flex-wrap: wrap; }
+.section-head h2 { font-size: clamp(34px, 5vw, 48px); text-transform: uppercase; }
+.section-head .mono { color: var(--red); font-size: 14px; }
+.plate { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; padding-block: 40px; border-top: 1px solid var(--rule); align-items: start; }
+.plate:first-of-type { border-top: 0; }
+.plate.flip .media { order: 2; }
+.plate h3 { font-size: 30px; text-transform: uppercase; margin-bottom: 14px; }
+.plate p + p { margin-top: 12px; }
+.plate ul { margin: 16px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.plate li { padding-left: 22px; position: relative; max-width: 60ch; }
+.plate li::before { content: ""; position: absolute; left: 0; top: .72em; width: 10px; height: 2px; background: var(--red); }
+.btns { font-family: var(--mono); font-size: 14px; color: var(--blue); }
+.pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+.trio { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; padding-block: 8px 40px; }
+.trio figure { margin: 0; }
+.trio p { font-size: 15px; color: var(--ink-2); margin-top: 6px; }
+.trio h3 { font-size: 22px; text-transform: uppercase; margin-top: 14px; }
+
+/* install */
+.install { background: var(--sheet); border-block: 1px solid var(--rule); margin-top: 72px; }
+.install .wrap { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 48px; padding-block: 56px; }
+.install h2 { font-size: clamp(34px, 5vw, 48px); text-transform: uppercase; }
+.steps { list-style: none; margin: 0; padding: 0; counter-reset: s; display: grid; gap: 18px; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 12px; }
+.steps li::before { content: counter(s); font-family: var(--display); font-size: 34px; font-weight: 600; color: var(--red); line-height: 1; }
+.steps b { display: block; font-weight: 600; }
+.steps span { color: var(--ink-2); font-size: 15px; }
+
+/* revisions */
+.rev-wrap { overflow-x: auto; margin-top: 24px; }
+table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 15px; }
+th, td { text-align: left; padding: 12px 16px 12px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-family: var(--mono); font-weight: 400; font-size: 13px; color: var(--ink-2); text-transform: uppercase; letter-spacing: .08em; }
+td:first-child { font-family: var(--mono); color: var(--red); white-space: nowrap; width: 72px; }
+.credits { padding-block: 56px 72px; display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 32px; align-items: center; }
+.credits img { width: 120px; }
+.credits p { color: var(--ink-2); font-size: 15px; }
+.credits p + p { margin-top: 8px; }
+
+@media (max-width: 860px) {
+  .hero .wrap, .plate, .install .wrap { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .plate.flip .media { order: 0; }
+  .specs .wrap { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .spec:nth-child(3) { border-right: 0; }
+  .spec:nth-child(n+4) { border-top: 1px solid var(--rule); }
+  .spec:nth-child(4) { padding-left: 0; }
+  .trio { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 480px) {
+  .specs .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .spec { border-right: 0; padding-left: 0; }
+  .spec:nth-child(n+3) { border-top: 1px solid var(--rule); }
+  .pair { grid-template-columns: minmax(0, 1fr); }
+  .credits { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* site navigation and download buttons (GitHub Pages) */
+.site-nav { background: var(--sheet); border-bottom: 1px solid var(--rule); }
+.site-nav .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; justify-content: space-between; padding-block: 10px; }
+.site-nav .brand { font-family: var(--display); font-weight: 600; font-size: 20px; text-transform: uppercase; letter-spacing: .02em; color: var(--ink); text-decoration: none; }
+.site-nav nav { display: flex; flex-wrap: wrap; gap: 6px 20px; font-family: var(--mono); font-size: 14px; }
+.site-nav nav a { color: var(--ink-2); text-decoration: none; }
+.site-nav nav a:hover, .site-nav nav a[aria-current] { color: var(--blue); }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 4px; font-family: var(--mono); font-size: 15px; text-decoration: none; border: 1px solid var(--blue); color: var(--blue); }
+.btn.primary { background: var(--blue); color: var(--paper); }
+.btn small { opacity: .8; font-size: 12px; }
+.btn:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+</style>
+<style>
+.man { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; padding-block: 40px 80px; }
+.toc { position: sticky; top: 16px; align-self: start; font-family: var(--mono); font-size: 14px; }
+.toc b { display: block; color: var(--red); font-weight: 400; letter-spacing: .1em; text-transform: uppercase; font-size: 12px; margin-bottom: 8px; }
+.toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.toc a { color: var(--ink-2); text-decoration: none; }
+.toc a:hover { color: var(--blue); }
+.doc { max-width: 760px; min-width: 0; }
+.doc h1 { font-size: clamp(40px, 6vw, 64px); text-transform: uppercase; }
+.doc h2 { font-size: clamp(28px, 4vw, 38px); text-transform: uppercase; margin: 56px 0 14px; padding-top: 14px; border-top: 1px solid var(--rule); scroll-margin-top: 16px; }
+.doc p, .doc li { max-width: 68ch; }
+.doc p { margin: 12px 0; }
+.doc ul, .doc ol { padding-left: 22px; }
+.doc li { margin: 4px 0; }
+.doc a { color: var(--blue); }
+.doc code { font-family: var(--mono); font-size: .95em; background: var(--sheet); border: 1px solid var(--rule); border-radius: 3px; padding: 0 4px; overflow-wrap: anywhere; }
+.fig { margin: 24px 0 8px; max-width: 520px; }
+.legend { margin: 8px 0 24px; padding: 14px 16px 14px 40px; background: var(--sheet); border-left: 3px solid #e8a12a; font-size: 15px; max-width: 520px; }
+.legend li { margin: 2px 0; }
+.legend li::marker { font-family: var(--mono); color: #c47f0e; font-weight: 600; }
+.tbl { overflow-x: auto; margin: 16px 0; }
+.tbl table { min-width: 0; }
+.lead2 { font-size: 18px; color: var(--ink-2); margin-top: 12px; }
+@media (max-width: 860px) { .man { grid-template-columns: minmax(0,1fr); gap: 24px; } .toc { position: static; } }
+</style>
+</head>
+<body>
+<header class="site-nav"><div class="wrap">
+  <a class="brand" href="./">MiG-29 WW MFD</a>
+  <nav aria-label="Site">
+    <a href="./">Overview</a>
+    <a href="manual.html" aria-current="page">Pilot manual</a>
+    <a href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.7.1.zip">Download v1.7.1</a>
+    <a href="https://files.digitalcombatsimulator.com/en/files/3350140/">KRN's cockpit mod</a>
+  </nav>
+</div></header>
+<div class="wrap man">
+  <aside class="toc" aria-label="Contents"><b>Contents</b><ol><li><a href="#before-you-fly">Before you fly</a></li><li><a href="#power-and-start-up">Power and start-up</a></li><li><a href="#the-bezel">The bezel</a></li><li><a href="#menu-and-moving-between-pages">MENU and moving between pages</a></li><li><a href="#sa-page">SA page</a></li><li><a href="#picture-and-intc">PICTURE and INTC</a></li><li><a href="#nav-page">NAV page</a></li><li><a href="#hsi-com-nav-fpas-sms-flt-and-rwr">HSI, COM/NAV, FPAS, SMS, FLT and RWR</a></li><li><a href="#ufcp-buttons-and-the-stp-switch">UFCP buttons and the STP switch</a></li><li><a href="#data-cartridges-drawings-and-the-dtc-planner">Data cartridges, drawings and the DTC Planner</a></li><li><a href="#options-settings-and-troubleshooting">Options, settings and troubleshooting</a></li></ol></aside>
+  <article class="doc">
+    <h1>Vitezovi MiG-29 MFD Pilot Manual</h1>
+    <p>How to fly with the Vitezovi MiG-29 MFD add-on v1.7.1: one MFD with situational awareness, navigation, intercept, fuel, stores and RWR pages, on top of KRN MODS' MiG-29A(M) Cockpit Modernization.</p>
+<h2 id="before-you-fly">Before you fly</h2>
+<p>You need two things installed before the add-on: the DCS MiG-29A Fulcrum module and KRN MODS' "MiG-29A(M) Cockpit Modernization" V1.0.3, unzipped into <code>Saved Games\DCS\Mods\tech</code> as KRN describes.</p>
+<p>Download KRN's mod from its release page: <a href="https://files.digitalcombatsimulator.com/en/files/3350140/">MiG-29A(M) Cockpit Modernization on DCS User Files</a>.</p>
+<p><strong>Install</strong></p>
+<ol>
+<li>Close DCS.</li>
+<li>Unzip the add-on anywhere (not into the Mods folder) and double-click <code>INSTALL.bat</code>.</li>
+<li>The installer finds KRN's mod, checks it is V1.0.3, keeps a copy of every KRN file it changes and installs the add-on. If it reports a problem, it has changed nothing.</li>
+<li>In DCS: Options &gt; Special &gt; MIG-29AM, keep KRN's own MiG29 box ticked.</li>
+</ol>
+<p><strong>Remove:</strong> double-click <code>UNINSTALL.bat</code>. KRN's original files come back and KRN's mod works on its own.</p>
+<p><strong>If the installer says KRN's files are not originals</strong> (another KRN version, or the old all-in-one Vitezovi package): delete KRN's folder, unzip KRN's mod again, run <code>INSTALL.bat</code> again.</p>
+<p><strong>Updating KRN's mod later:</strong> uninstall the add-on first, update KRN, then install the add-on version made for that KRN version.</p>
+<p><strong>Test missions</strong> (installed to <code>Saved Games\DCS\Missions</code>):</p>
+<ul>
+<li><code>MiG29_DL_Test_Flight.miz</code>: four MiG-29 slots at Kutaisi plus dynamic spawn.</li>
+<li><code>MiG29_RWR_Test.miz</code>: air start with a full load, an SA-6 site and an armed Su-27, for the RWR and stores pages.</li>
+</ul>
+<h2 id="power-and-start-up">Power and start-up</h2>
+<p>The MFD runs on the jet's DC power and has its own power button: the top-left rocker on the bezel, labelled PWR.</p>
+<ul>
+<li><strong>On:</strong> press PWR once. It needs jet power (battery switch on, or a generator running).</li>
+<li><strong>Off:</strong> hold PWR for 2 seconds. A "DISPLAY POWER OFF" bar fills while you hold; let go early and nothing happens.</li>
+<li><strong>Hot start and air start:</strong> the MFD is already on.</li>
+<li><strong>Cold start:</strong> the screen stays dark until the battery is on and you press PWR.</li>
+</ul>
+<figure class="fig"><div class="shot"><img src="img/m_hold.png" alt="Holding PWR: the DISPLAY POWER OFF bar fills, annotated with numbered markers" loading="lazy"></div><figcaption>Holding PWR: the DISPLAY POWER OFF bar fills</figcaption></figure>
+
+<ol class="legend">
+<li>Shown while you hold PWR; the bar fills over 2 seconds and the display switches off when it is full.</li>
+<li>Let go before it is full and nothing happens.</li>
+</ol>
+<p><strong>The start-up (about 16 seconds)</strong></p>
+<ol>
+<li>Screen test: a short flash, then a test grid with grey steps.</li>
+<li>Boot ROM: the display's own hardware check in small text.</li>
+<li>Software boot log: each check ticks in with its boot clock, then a loading bar.</li>
+<li>Squadron badge with the program version and a start-up bar.</li>
+<li>BUILT-IN TEST checklist: every line goes from IN TEST to GO (white) or NO-GO (red). The right column shows real values: DC volts, your latitude and longitude (the nav alignment), datalink tracks, SPO-15, stations and the number of cartridges. Bottom-centre SKIP shows the result at once.</li>
+<li>SELECT CARTRIDGE: see below. Then the MENU page.</li>
+</ol>
+<p>NO-GO lines are information, not faults of the add-on: NAV / POSITION without a position, DATALINK RECEIVER without datalink packets (export off on a server, for example), GCI / BULLSEYE without a bullseye in the mission.</p>
+<figure class="fig"><div class="shot"><img src="img/m_bit.png" alt="The BUILT-IN TEST checklist, annotated with numbered markers" loading="lazy"></div><figcaption>The BUILT-IN TEST checklist</figcaption></figure>
+
+<ol class="legend">
+<li>Test mode and the add-on's version.</li>
+<li>Check box: tick = GO, red cross = NO-GO, amber square = running now, empty = still waiting.</li>
+<li>Result of each line.</li>
+<li>A NO-GO line (here: no datalink packets yet).</li>
+<li>The line being tested right now.</li>
+<li>Your position from the nav alignment, latitude and longitude.</li>
+<li>Summary: lines passed and failed.</li>
+<li>SKIP: show the whole result at once.</li>
+</ol>
+<p><strong>Choosing a cartridge</strong></p>
+<p>The cartridges for the current map are listed as cards. The selected card is gold, with a preview of its route, points and drawings on the right and what it holds below (flight members, radio presets, waypoints, airfields, RSBN, drawings).</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Button</th>
+<th>Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Left 2 UP / left 3 DOWN</td>
+<td>Select a cartridge</td>
+</tr>
+<tr>
+<td>Bottom centre LOAD</td>
+<td>Load the selected cartridge</td>
+</tr>
+<tr>
+<td>Right 1 MSN</td>
+<td>Use the mission plan instead</td>
+</tr>
+<tr>
+<td>Right 5 NONE</td>
+<td>No flight plan</td>
+</tr>
+</tbody>
+</table></div>
+<figure class="fig"><div class="shot"><img src="img/m_dtc.png" alt="SELECT CARTRIDGE, annotated with numbered markers" loading="lazy"></div><figcaption>SELECT CARTRIDGE</figcaption></figure>
+
+<ol class="legend">
+<li>Your aligned position.</li>
+<li>The cartridges for this map, one card each, with points, flight members and GEO when it has drawings.</li>
+<li>The selected cartridge: gold, with the pointer.</li>
+<li>Preview of its route (white), points (blue) and drawings (pink).</li>
+<li>More cartridges below; UP and DOWN scroll to them.</li>
+<li>What it holds: flight members, radio presets, waypoints / airfields / RSBN, drawings.</li>
+<li>UP (L2).</li>
+<li>DOWN (L3).</li>
+<li>LOAD (bottom centre): load the selected cartridge.</li>
+<li>MSN (R1): use the mission plan.</li>
+<li>NONE (R5): no flight plan.</li>
+</ol>
+<p>You can change cartridges later on the NAV page (right 1 LOAD).</p>
+<p><strong>Power cuts</strong></p>
+<ul>
+<li>Under 1.5 seconds: the screen goes dark and comes back on the same page.</li>
+<li>Longer (engines and battery off for a rearm, for example): the MFD switches off. With PWR still on, it runs the full start-up again as soon as power returns.</li>
+</ul>
+<h2 id="the-bezel">The bezel</h2>
+<p><strong>The five controls that never change</strong></p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Where</th>
+<th>Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PWR</td>
+<td>Top-left rocker</td>
+<td>Press = on, hold 2 s = off</td>
+</tr>
+<tr>
+<td>MENU</td>
+<td>Bottom centre</td>
+<td>Back to the MENU page from any page</td>
+</tr>
+<tr>
+<td>BRT</td>
+<td>Top-right rocker</td>
+<td>Left click brighter, right click darker</td>
+</tr>
+<tr>
+<td>SYM</td>
+<td>Bottom-left rocker</td>
+<td>SA page declutter: left click less, right click more</td>
+</tr>
+<tr>
+<td>D/N</td>
+<td>Bottom-right switch</td>
+<td>Left click day, right click night colours</td>
+</tr>
+</tbody>
+</table></div>
+<p>Everything else changes with the page: read the label printed beside a button before you press it. Buttons with no label do nothing on that page.</p>
+<h2 id="menu-and-moving-between-pages">MENU and moving between pages</h2>
+<p>The MENU page (squadron badge, fuel and datalink status at the bottom) is the hub: every page is one button away, and the bottom-centre button brings you back to it from anywhere.</p>
+<figure class="fig"><div class="shot"><img src="img/m_menu.jpg" alt="The MENU page in the cockpit, annotated with numbered markers" loading="lazy"></div><figcaption>The MENU page in the cockpit</figcaption></figure>
+
+<ol class="legend">
+<li>PWR rocker: press = on, hold 2 s = off.</li>
+<li>Left page buttons (SA, PIC, NAV, HSI, COM/NAV).</li>
+<li>Right page buttons (FPAS, SMS, FLT, RWR, OPT).</li>
+<li>Page title.</li>
+<li>Status line: fuel and datalink state.</li>
+<li>MENU (bottom centre): back to this page from anywhere.</li>
+<li>Brightness rocker.</li>
+<li>SYM rocker (symbol brightness).</li>
+<li>D/N switch: day / night colours.</li>
+</ol>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Left</th>
+<th>Page</th>
+<th>Right</th>
+<th>Page</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>SA</td>
+<td>1</td>
+<td>FPAS (fuel and engines)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>NAV</td>
+<td>2</td>
+<td>SMS (stores)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>HSI</td>
+<td>3</td>
+<td>FLT (your flight)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>COM/NAV</td>
+<td>4</td>
+<td>RWR</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Bottom centre (MENU):</strong> to the MENU from any page. Pressed on the MENU, it takes you back to the page you came from.</li>
+<li><strong>UFCP NAV button:</strong> straight to the NAV page; again = back.</li>
+<li><strong>SA page right 2 PIC:</strong> the PICTURE page.</li>
+<li><strong>MISSILE LAUNCH and BINGO FUEL</strong> alerts show on every page.</li>
+</ul>
+<h2 id="sa-page">SA page</h2>
+<p>The SA page is a heading-up picture around your jet in the style of the F-15 SIT page: datalink contacts, ground threats, your route, markpoints and the cartridge's drawings, optionally over DCS's own charts.</p>
+<figure class="fig"><div class="shot"><img src="img/m_sa.png" alt="SA page with INTC running, annotated with numbered markers" loading="lazy"></div><figcaption>SA page with INTC running</figcaption></figure>
+
+<ol class="legend">
+<li>H1–H5: range and declutter buttons.</li>
+<li>INTC heading tape (only while INTC runs).</li>
+<li>Your bullseye position.</li>
+<li>Range scale.</li>
+<li>Active steerpoint: TO, bearing and range.</li>
+<li>Your jet.</li>
+<li>Cursor box on a contact.</li>
+<li>SA-11 threat ring.</li>
+<li>Route waypoints.</li>
+<li>INTC meeting point (X).</li>
+<li>INTC readouts: heading, time and range to the meeting point.</li>
+<li>Bearing and range from you to the cursor.</li>
+</ol>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Button</th>
+<th>Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Left 1 FPL</td>
+<td>Flight plan route on / off</td>
+</tr>
+<tr>
+<td>Left 2 DCTR / CNTR</td>
+<td>Move your jet low on the screen to see further ahead, and back</td>
+</tr>
+<tr>
+<td>Left 3 / 4 RNG + / -</td>
+<td>Range 20, 40, 80, 160, 320 km</td>
+</tr>
+<tr>
+<td>Left 5 NEXT</td>
+<td>Cursor to the nearest contact, then the next one</td>
+</tr>
+<tr>
+<td>Top H1 to H5</td>
+<td>Cursor to the nearest to 5th nearest hostile</td>
+</tr>
+<tr>
+<td>Right 1 GEO</td>
+<td>Cartridge drawings shown (white) / hidden (grey); no label = none</td>
+</tr>
+<tr>
+<td>Right 2 PIC</td>
+<td>PICTURE page</td>
+</tr>
+<tr>
+<td>Right 3 INTC</td>
+<td>Intercept steering on / off (green while on)</td>
+</tr>
+<tr>
+<td>Bottom 1 MARK / 2 DEL</td>
+<td>Drop a markpoint / delete the newest</td>
+</tr>
+<tr>
+<td>Bottom 4 EXP / NORM</td>
+<td>Expanded view around the cursor's contact</td>
+</tr>
+<tr>
+<td>Bottom 5 MAP</td>
+<td>Moving map on / off (when enabled in Options)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Reading it</strong></p>
+<ul>
+<li>Colours: green friendly, red hostile, yellow unknown, cyan your flight. Lines from contacts show where they are heading.</li>
+<li>Top left: your bearing and range from the bullseye. Top right: range scale and the active steerpoint (TO ...). An amber NO DL or DL OFF appears there only when the datalink is missing.</li>
+<li>Bottom right: the datablock of the contact under the cursor (bearing / range from you and from the bullseye, altitude, type).</li>
+<li>Red rings are ground threats seen over the datalink.</li>
+</ul>
+<p><strong>Cursor:</strong> move it with the jet's radar cursor (TDC) slew controls, or jump to contacts with NEXT and H1 to H5.</p>
+<p><strong>EXP:</strong> zooms around the contact or SAM under the cursor (else the cursor point, else your jet) and follows a contact you picked. RNG + / - inside EXP zooms only the expanded view; NORM brings back your normal range, and the next EXP comes back at the zoom you used last.</p>
+<p><strong>Declutter (SYM rocker, bottom left):</strong> left click less, right click more, five steps: 1 FULL, 2 SHORT labels, 3 ALT only, 4 CLEAN (no labels, no route), 5 MIN (contacts and threats only).</p>
+<p><strong>Markpoints:</strong> MARK (or the UFCP MRK button) drops one at the cursor, or under the jet when the cursor is off. Up to 5. They appear on FPAS as places to go home to.</p>
+<p><strong>Moving map:</strong> tick Moving map in Options (see the last section). Charts exist for Caucasus, Syria, Persian Gulf, Sinai, Iraq, Afghanistan, Nevada, Mariana Islands, Marianas WWII, South Atlantic, Germany Cold War and Kola.</p>
+<h2 id="picture-and-intc">PICTURE and INTC</h2>
+<p>Both are advisory and live only on the MFD: they read what the jet and the datalink already know and never touch the autopilot, HUD, radar or weapons.</p>
+<p><strong>PICTURE (SA page right 2)</strong></p>
+<p>The contacts grouped into formations, up to five groups, nearest first. Each row shows the group, BULLS (from the bullseye) or BRAA (from you), altitude, size and type, and aspect: HOT, FLANK, BEAM or DRAG with its direction. The selected group's call is written out (for example "BULLS 045/62, 8000, HOT, HOSTILE, 2 SHIP F-16.") above a small north-up plot.</p>
+<figure class="fig"><div class="shot"><img src="img/m_pic.png" alt="PICTURE page, annotated with numbered markers" loading="lazy"></div><figcaption>PICTURE page</figcaption></figure>
+
+<ol class="legend">
+<li>Group count and the call format.</li>
+<li>SHOW filter in use.</li>
+<li>Group table.</li>
+<li>Selected group (boxed).</li>
+<li>The call written out, ready to read on the radio.</li>
+<li>Plot of the groups.</li>
+<li>Plot range.</li>
+<li>GRP buttons (R1–R5): pick a group.</li>
+<li>CALL (L2).</li>
+<li>INTC (L4): intercept the selected group.</li>
+<li>SA (L5).</li>
+<li>RNG+ (B1).</li>
+<li>AUTO (B4).</li>
+<li>SHOW / ALL (B5).</li>
+</ol>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Button</th>
+<th>Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Right 1 to 5</td>
+<td>Select a group</td>
+</tr>
+<tr>
+<td>Left 2 CALL BULL / BRAA</td>
+<td>Call format, and the plot's centre: bullseye or your jet</td>
+</tr>
+<tr>
+<td>Left 4 INTC</td>
+<td>Start intercept steering on that group, back to SA</td>
+</tr>
+<tr>
+<td>Left 5 SA</td>
+<td>Back to SA with the cursor on that group</td>
+</tr>
+<tr>
+<td>Bottom 1 / 2</td>
+<td>Plot range + / - (25 to 400 km)</td>
+</tr>
+<tr>
+<td>Bottom 4 AUTO</td>
+<td>Plot range that fits all groups</td>
+</tr>
+<tr>
+<td>Bottom 5 SHOW</td>
+<td>Hostile / friendly / all (hostile red, friendly green)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>INTC intercept steering (SA page right 3)</strong></p>
+<p>Starts on the contact under the cursor, else the nearest hostile (or from PICTURE left 4). Press INTC again to stop.</p>
+<ul>
+<li><strong>Heading tape</strong> at the very top: put the green diamond under the centre mark to fly the collision course (CC). Amber at the end of the tape = more than 20 degrees to turn.</li>
+<li><strong>On the scope:</strong> a yellow X where you will meet, dashed lines from you and from the target to it, a white ring on the target (amber = track lost).</li>
+<li><strong>Bottom right</strong> (in place of the cursor datablock): target and aspect, CC and time to X, bearing / range / altitude, closure, and fuel at X (amber or red against your FPAS bingo).</li>
+<li><strong>TAIL CHASE:</strong> the target is faster and running, so there is no collision course; the diamond points at the target.</li>
+</ul>
+<h2 id="nav-page">NAV page</h2>
+<p>NAV steers you along the cartridge's route: put the green diamond on the centre mark and you fly the command heading (CMD) that keeps you on the planned leg.</p>
+<figure class="fig"><div class="shot"><img src="img/m_nav.png" alt="NAV page, annotated with numbered markers" loading="lazy"></div><figcaption>NAV page</figcaption></figure>
+
+<ol class="legend">
+<li>Name of the loaded plan.</li>
+<li>Current steerpoint.</li>
+<li>Bearing and range to it.</li>
+<li>Direction and cross-track error.</li>
+<li>Steering diamond (CMD): fly it to the centre.</li>
+<li>Centre mark.</li>
+<li>Commanded heading.</li>
+<li>Route list.</li>
+<li>Time-on-target line.</li>
+<li>SEQ AUTO: steerpoints step on by themselves.</li>
+</ol>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Left</th>
+<th>Does</th>
+<th>Right</th>
+<th>Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 PREV</td>
+<td>Previous steerpoint</td>
+<td>1 LOAD</td>
+<td>Choose a cartridge, MSN or OFF</td>
+</tr>
+<tr>
+<td>2 NEXT</td>
+<td>Next steerpoint</td>
+<td>2 TOT</td>
+<td>Set a time on target (UFCP keypad)</td>
+</tr>
+<tr>
+<td>3 AUTO / MAN</td>
+<td>Automatic or manual sequencing</td>
+<td>3 PT</td>
+<td>Move the TOT cursor along the route</td>
+</tr>
+<tr>
+<td>4 DIR</td>
+<td>Fly direct from where you are</td>
+<td>4 CLR</td>
+<td>Remove the TOT under the cursor</td>
+</tr>
+<tr>
+<td>5 RTE</td>
+<td>Pick the route to fly</td>
+<td>5 RSBN / TOT</td>
+<td>Swap the bottom block</td>
+</tr>
+</tbody>
+</table></div>
+<p>Bottom 1 ADD and bottom 2 DEL add and remove typed-in waypoints.</p>
+<p><strong>Top block:</strong> the selected steerpoint and its note, bearing and range, time to go and ETA, the leg course (DTK) or DIR, cross-track error and the steering bar. Off the leg, CMD brings you back onto it at up to 45 degrees. All bearings are true (T) and match the SA page, HSI and UFCP.</p>
+<p><strong>Route list:</strong> the cartridge's whole route plus its airfields, with bearing and distance from the jet and the ETA along the route.</p>
+<p><strong>Which steerpoint is active:</strong> whatever you used last wins between PREV / NEXT, the UFCP STP switch and the jet's NAV panel WP-A/D buttons. In AUTO the next point is taken when you are within 3 km or have passed abeam.</p>
+<p><strong>Time on target</strong></p>
+<ol>
+<li>Right 3 PT moves the cursor (&lt;) to the point.</li>
+<li>Right 2 TOT, then type the time on the UFCP keypad as HHMMSS (or HHMM, then ENT). Mission time, as on the cockpit clock.</li>
+<li>Set as many TOTs as you like; each leg between two TOTs gets its own speed.</li>
+<li>Fly the cyan caret (your ground speed) into the green box (speed needed). The THEN line shows the next leg's speed.</li>
+</ol>
+<p>Fuel at the TOT point and at the last steerpoint turns amber when it is below bingo or reserve. Ground speed needs about 2 seconds after opening the page.</p>
+<p><strong>Member routes (RTE, left 5)</strong></p>
+<p>One cartridge can hold every flight member's route: in DCS's DTC editor, start a point's note with member numbers ("1 IP", "12 TGT", "1234 RV"; untagged = everyone).</p>
+<ul>
+<li>Left 1 to 4: member 1 to 4's route.</li>
+<li>Right 1 to 5: add or remove that point by hand; the number in [ ] is its place in the route.</li>
+<li>Bottom 1 / 2 page, bottom 4 CLR, bottom 5 ALL, left 5 DONE.</li>
+</ul>
+<p>Changing the route clears TOTs and typed-in waypoints.</p>
+<p><strong>Typed-in waypoints</strong></p>
+<ul>
+<li>Bottom 1 ADD = latitude / longitude entry; ADD again = MGRS; a third time = cancel. CLR deletes the last digit.</li>
+<li>Lat / long: 13 digits DDMMmm DDDMMmm, for example 4155850415172 = N 41 55.85 E 041 51.72. N/S and E/W come from where the jet is.</li>
+<li>MGRS: easting and northing in the jet's own 100 km square (shown on the line), 10 digits, or 4 / 6 / 8 digits then ENT.</li>
+<li>The point goes in after the selected steerpoint and is flown to directly. Bottom 2 DEL removes it.</li>
+</ul>
+<p><strong>RSBN view (right 5):</strong> the cartridge's RSBN 1 to 3 and the nearest map stations with bearing and range, NO RX beyond the radio horizon, and the jet's RSBN channel in green.</p>
+<h2 id="hsi-com-nav-fpas-sms-flt-and-rwr">HSI, COM/NAV, FPAS, SMS, FLT and RWR</h2>
+<p><strong>HSI (MENU left 3):</strong> a NATO-style HSI with heading bug, course and TACAN.</p>
+<ul>
+<li>Left 1 HDG, 2 CRS, 3 TCN: type the value on the UFCP keypad; ENT applies, CLR deletes.</li>
+<li>Left 4: course to the active steerpoint. Left 5: heading bug to your present heading.</li>
+<li>Right 1 TCN OFF: switches the TACAN pointer off again (shown while a channel is set).</li>
+</ul>
+<figure class="fig"><div class="shot"><img src="img/m_hsi.png" alt="HSI page, annotated with numbered markers" loading="lazy"></div><figcaption>HSI page</figcaption></figure>
+
+<ol class="legend">
+<li>Steerpoint bearing and range.</li>
+<li>TACAN state (OFF here).</li>
+<li>Heading readout.</li>
+<li>Heading bug.</li>
+<li>Course arrow and deviation bar.</li>
+<li>Steerpoint bearing pointer (green).</li>
+<li>HDG and CRS readouts.</li>
+<li>HDG (L1): set the heading bug.</li>
+<li>CRS (L2): set the course.</li>
+<li>TCN (L3): TACAN on / off.</li>
+<li>STP (L4): set the course to the steerpoint.</li>
+<li>SYNC (L5): put the bug on your current heading.</li>
+</ol>
+<p><strong>COM/NAV (MENU left 4):</strong> the R-862 channel and frequency, the 20 presets (channels 0 to 19), RSBN / ILS / ADF / GCI channels and the nearest RSBN / PRMG stations. Read only: the MiG-29 keeps its own preset frequencies.</p>
+<figure class="fig"><div class="shot"><img src="img/m_comnav.png" alt="COM/NAV page, annotated with numbered markers" loading="lazy"></div><figcaption>COM/NAV page</figcaption></figure>
+
+<ol class="legend">
+<li>Radio channel and frequency.</li>
+<li>Preset table.</li>
+<li>Current channel (amber).</li>
+<li>RSBN, ILS, ADF and GCI settings.</li>
+<li>Nearest stations.</li>
+</ol>
+<p><strong>FPAS (MENU right 1):</strong> fuel and engines.</p>
+<ul>
+<li>Time and range to 500 kg, best range and endurance (estimates), engine RPM and EGT.</li>
+<li>Left 1 BINGO: type kg on the UFCP keypad, ENT. Below bingo, a BINGO FUEL alert shows on every page.</li>
+<li>Left 2 HOME: cycles through the plan's airfields and your markpoints, with fuel needed to get there and fuel on arrival. With no airfield in the cartridge and no markpoint it shows HOME -- (common on air starts): drop a markpoint over your base, or load a cartridge that has your home airfield.</li>
+</ul>
+<figure class="fig"><div class="shot"><img src="img/m_fpas.png" alt="FPAS page, annotated with numbered markers" loading="lazy"></div><figcaption>FPAS page</figcaption></figure>
+
+<ol class="legend">
+<li>Total fuel.</li>
+<li>RPM and EGT.</li>
+<li>At the current setting: time to 500 kg and range.</li>
+<li>Best range.</li>
+<li>Best endurance.</li>
+<li>Bingo and home figures.</li>
+<li>BINGO (L1).</li>
+<li>HOME (L2).</li>
+</ol>
+<p><strong>SMS (MENU right 2):</strong> what hangs on each station, gun rounds, chaff and flares. Amber = selected station.</p>
+<figure class="fig"><div class="shot"><img src="img/m_sms.png" alt="SMS page, annotated with numbered markers" loading="lazy"></div><figcaption>SMS page</figcaption></figure>
+
+<ol class="legend">
+<li>Station list.</li>
+<li>Selected station (amber).</li>
+<li>Gun rounds, chaff and flares.</li>
+<li>Summary of the load.</li>
+</ol>
+<p><strong>FLT (MENU right 3):</strong> your flight's positions, radar and jammer status, alive or lost.</p>
+<ul>
+<li>Left 1 ADD lists friendly aircraft (players first); pick up to 5 with the right buttons. Left 2 removes the selected member.</li>
+<li>Members are remembered between flights.</li>
+<li>Fuel and weapons of other jets are not available outside single player, so FLT shows radar / jammer / alive instead.</li>
+</ul>
+<figure class="fig"><div class="shot"><img src="img/m_flt.png" alt="FLT page, annotated with numbered markers" loading="lazy"></div><figcaption>FLT page</figcaption></figure>
+
+<ol class="legend">
+<li>Flight members on the right buttons.</li>
+<li>Status of the selected member.</li>
+<li>ADD (L1).</li>
+<li>REM (L2).</li>
+</ol>
+<p><strong>RWR (MENU right 4):</strong> the SPO-15 picture on the MFD. It shows exactly what the SPO-15 shows: sector lamps, type letters and signal strength. It does not name the radar or aircraft that is painting you.</p>
+<ul>
+<li>The main threat sits in its direction, nearer the centre the stronger it is, with its SPO-15 type letter (P Z H N F S).</li>
+<li>Amber = main threat, red ring = locked on you, flashing ring and banner = missile launch.</li>
+<li>Other threats show their direction on the outer ring.</li>
+</ul>
+<figure class="fig"><div class="shot"><img src="img/m_rwr.png" alt="RWR page (SPO-15), annotated with numbered markers" loading="lazy"></div><figcaption>RWR page (SPO-15)</figcaption></figure>
+
+<ol class="legend">
+<li>SPO-15 state and how many sectors are lit (SPO-15 OFF or CLEAR when there is nothing).</li>
+<li>Chaff and flares left.</li>
+<li>Scope with your jet in the middle.</li>
+<li>Main threat: its SPO-15 type letter in its sector, nearer the centre the stronger it is; red ring = locked on you.</li>
+<li>Other lit sectors on the outer ring. They carry a type letter only when one other type lamp is lit, otherwise "?".</li>
+<li>Main threat line: type letter, sector direction, power level (out of 15) and LOCK or LAUNCH.</li>
+<li>All type lamps that are lit.</li>
+<li>Directions of the other lit sectors (above or below for the main threat shows under these when the SPO-15 lights it).</li>
+</ol>
+<h2 id="ufcp-buttons-and-the-stp-switch">UFCP buttons and the STP switch</h2>
+<p>Three UFCP keys belong to the add-on (their labels are changed on the panel) and the keypad types values for the MFD pages.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>UFCP control</th>
+<th>Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MRK</td>
+<td>Markpoint at the SA cursor, or under the jet</td>
+</tr>
+<tr>
+<td>DIR (was DVR)</td>
+<td>Fly direct to the selected steerpoint from here</td>
+</tr>
+<tr>
+<td>NAV (was FLT/MENU)</td>
+<td>NAV page; again = back</td>
+</tr>
+<tr>
+<td>Keypad, ENT, CLR</td>
+<td>Values for HSI, BINGO, TOT and typed-in waypoints</td>
+</tr>
+<tr>
+<td>STP switch</td>
+<td>With a cartridge loaded: step through its steerpoints</td>
+</tr>
+</tbody>
+</table></div>
+<p>With a cartridge loaded the UFCP shows the add-on's steerpoint: line 1 "STP P3", line 2 its true bearing and distance, the same numbers as the SA and NAV pages. With MSN the STP switch stays KRN's own (mission route).</p>
+<h2 id="data-cartridges-drawings-and-the-dtc-planner">Data cartridges, drawings and the DTC Planner</h2>
+<p>A cartridge is a MiG-29 <code>.dtc</code> file in <code>Saved Games\DCS\DTC</code>, made in DCS's own DTC editor or in the Vitezovi DTC Planner. Only cartridges for the current map are listed.</p>
+<ul>
+<li><strong>One cartridge for both worlds:</strong> its 3 waypoints, 3 airfields and 3 RSBN channels drive the jet's own navigation; its route (any length) drives the NAV and SA pages.</li>
+<li><strong>Member tags:</strong> start a point's note with member numbers ("1 IP", "12 TGT"); see Member routes on the NAV page. Notes hold 7 characters.</li>
+<li><strong>Examples installed:</strong> VITEZOVI GCI NETWORK (intercept and escort routes for four members, ranges, FLOT and orbit tracks), VITEZOVI FLIGHT 40 (member routes), VITEZOVI ROUTE 20 (a 20-point route).</li>
+</ul>
+<p><strong>Drawings (.geo.txt)</strong></p>
+<p>An optional file with the same name next to the cartridge (<code>DTC\&lt;name&gt;.dtc</code> + <code>DTC\&lt;name&gt;.geo.txt</code>) adds drawings to the SA page. The DTC Planner's DRAWINGS tab writes it; Notepad works too, one drawing per line, latitude / longitude in decimal degrees, radius in km, # = comment.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Line</th>
+<th>Draws</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>RING SA-11 35 42.9000 42.9000</code></td>
+<td>Red ring with name and radius (confirmed threat)</td>
+</tr>
+<tr>
+<td><code>RING? SA-8? 12 42.5500 42.3500</code></td>
+<td>Pink dashed ring (suspected threat)</td>
+</tr>
+<tr>
+<td><code>FLOT MAIN RIDGE 43.55 40.10 / 43.58 40.55</code></td>
+<td>Cyan dashed line</td>
+</tr>
+<tr>
+<td><code>BORDER GEO-RUS 42.85 41.0 / 42.7 41.6</code></td>
+<td>Grey dash-dot-dot line</td>
+</tr>
+<tr>
+<td><code>AREA CAP SOUTH 41.95 42.3 / 41.95 42.9 / 41.75 42.9</code></td>
+<td>Cyan dashed outline with its name</td>
+</tr>
+</tbody>
+</table></div>
+<p>SA page right 1 GEO shows or hides them; threats seen over the datalink stay. "LOADED \<name> +GEO" confirms a cartridge with drawings.</p>
+<p><strong>The DTC Planner</strong> is the single <code>Vitezovi DTC Planner.html</code> file in the package: double-click it, it works offline with every map built in. Plan the route and drawings, then SAVE writes the <code>.dtc</code> and <code>.geo.txt</code> to Downloads; move them to <code>Saved Games\DCS\DTC</code>.</p>
+<h2 id="options-settings-and-troubleshooting">Options, settings and troubleshooting</h2>
+<p><strong>Options</strong> (DCS Options &gt; Special &gt; MIG-29AM &gt; "MiG-29 WW MFD"). They are read when a mission loads, so restart the mission after changing them. Keep KRN's own MiG29 box ticked: it switches the whole cockpit mod on.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Off / on means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Datalink</td>
+<td>Off: SA shows only your own radar, FLT is off, the export does not scan the mission's units (saves CPU)</td>
+</tr>
+<tr>
+<td>RWR page</td>
+<td>Off: no RWR page and no launch alerts</td>
+</tr>
+<tr>
+<td>Launch warnings</td>
+<td>Off: launches show as a normal lock, no banner</td>
+</tr>
+<tr>
+<td>Moving map</td>
+<td>On: DCS's charts behind the SA page, MAP button to hide them in flight</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Brightness:</strong> top-right rocker, left click brighter, right click darker. D/N switch bottom right: left click day, right click night (separate levels).</p>
+<p><strong>Settings file</strong> (text size, keypad mapping, ranges, power and start-up): <code>Saved Games\DCS\Mods\tech\MiG-29A(M) Cockpit Modernization - KRN MODS V1.0.3\Cockpit\Scripts\DL\dl_config.lua</code>. For example <code>boot_skip = true</code> keeps the power button but skips the start-up screens; <code>power_mode = "always"</code> keeps the MFD always on.</p>
+<p><strong>Troubleshooting</strong></p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Cause and fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MFD stays dark on a cold start</td>
+<td>Battery on, then press PWR (top-left rocker)</td>
+</tr>
+<tr>
+<td>NO DL on the SA page</td>
+<td>No datalink packets: the server switches off export of world objects, or the Datalink option is off. Only your own radar is shown</td>
+</tr>
+<tr>
+<td>No cartridges listed</td>
+<td>Cartridges are listed per map; the file must be a MiG-29 <code>.dtc</code> in <code>Saved Games\DCS\DTC</code></td>
+</tr>
+<tr>
+<td>No moving map</td>
+<td>Tick Moving map in Options and restart the mission; some maps have no charts</td>
+</tr>
+<tr>
+<td>Installer reports KRN files not original</td>
+<td>Delete KRN's folder, unzip KRN's mod again, run <code>INSTALL.bat</code></td>
+</tr>
+<tr>
+<td>Anything else</td>
+<td>Logs in <code>Saved Games\DCS\Logs\mig29dl_*.log</code>; send them with your report</td>
+</tr>
+</tbody>
+</table></div>
+<p>The SA datalink is a simulation built from the unit list DCS exports (sensor ranges, radar horizon, terrain): DCS has no real Link 16 for the MiG-29.</p>
+  </article>
+</div>
+</body>
+</html>
