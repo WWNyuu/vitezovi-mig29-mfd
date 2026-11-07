@@ -157,9 +157,12 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 .doc a { color: var(--blue); }
 .doc code { font-family: var(--mono); font-size: .95em; background: var(--sheet); border: 1px solid var(--rule); border-radius: 3px; padding: 0 4px; overflow-wrap: anywhere; }
 .fig { margin: 24px 0 8px; max-width: 520px; }
-.legend { margin: 8px 0 24px; padding: 14px 16px 14px 40px; background: var(--sheet); border-left: 3px solid #e8a12a; font-size: 15px; max-width: 520px; }
-.legend li { margin: 2px 0; }
-.legend li::marker { font-family: var(--mono); color: #c47f0e; font-weight: 600; }
+.fig.wide { max-width: 100%; }
+.fig .shot { width: fit-content; max-width: 100%; }
+.fig.wide .shot { background: #0e1116; }
+.doc .legend { margin: 8px 0 24px; padding: 14px 16px 14px 40px; background: var(--sheet); border-left: 3px solid #e8a12a; font-size: 15px; max-width: 520px; }
+.doc .legend li { margin: 2px 0; }
+.doc .legend li::marker { font-family: var(--mono); color: #c47f0e; font-weight: 600; }
 .tbl { overflow-x: auto; margin: 16px 0; }
 .tbl table { min-width: 0; }
 .lead2 { font-size: 18px; color: var(--ink-2); margin-top: 12px; }
@@ -177,7 +180,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
   </nav>
 </div></header>
 <div class="wrap man">
-  <aside class="toc" aria-label="Contents"><b>Contents</b><ol><li><a href="#before-you-fly">Before you fly</a></li><li><a href="#power-and-start-up">Power and start-up</a></li><li><a href="#the-bezel">The bezel</a></li><li><a href="#menu-and-moving-between-pages">MENU and moving between pages</a></li><li><a href="#sa-page">SA page</a></li><li><a href="#picture-and-intc">PICTURE and INTC</a></li><li><a href="#nav-page">NAV page</a></li><li><a href="#hsi-com-nav-fpas-sms-flt-and-rwr">HSI, COM/NAV, FPAS, SMS, FLT and RWR</a></li><li><a href="#ufcp-buttons-and-the-stp-switch">UFCP buttons and the STP switch</a></li><li><a href="#data-cartridges-drawings-and-the-dtc-planner">Data cartridges, drawings and the DTC Planner</a></li><li><a href="#options-settings-and-troubleshooting">Options, settings and troubleshooting</a></li></ol></aside>
+  <aside class="toc" aria-label="Contents"><b>Contents</b><ol><li><a href="#before-you-fly">Before you fly</a></li><li><a href="#power-and-start-up">Power and start-up</a></li><li><a href="#the-bezel">The bezel</a></li><li><a href="#menu-and-moving-between-pages">MENU and moving between pages</a></li><li><a href="#sa-page">SA page</a></li><li><a href="#picture-and-intc">PICTURE and INTC</a></li><li><a href="#nav-page">NAV page</a></li><li><a href="#hsi-com-nav-fpas-sms-flt-and-rwr">HSI, COM/NAV, FPAS, SMS, FLT and RWR</a></li><li><a href="#ufcp-buttons-and-the-stp-switch">UFCP buttons and the STP switch</a></li><li><a href="#data-cartridges-drawings-and-the-dtc-planner">Data cartridges, drawings and the DTC Planner</a></li><li><a href="#using-the-dtc-planner">Using the DTC Planner</a></li><li><a href="#options-settings-and-troubleshooting">Options, settings and troubleshooting</a></li></ol></aside>
   <article class="doc">
     <h1>Vitezovi MiG-29 MFD Pilot Manual</h1>
     <p>How to fly with the Vitezovi MiG-29 MFD add-on v1.7.1: one MFD with situational awareness, navigation, intercept, fuel, stores and RWR pages, on top of KRN MODS' MiG-29A(M) Cockpit Modernization.</p>
@@ -207,7 +210,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <li><strong>Hot start and air start:</strong> the MFD is already on.</li>
 <li><strong>Cold start:</strong> the screen stays dark until the battery is on and you press PWR.</li>
 </ul>
-<figure class="fig"><div class="shot"><img src="img/m_hold.png" alt="Holding PWR: the DISPLAY POWER OFF bar fills, annotated with numbered markers" loading="lazy"></div><figcaption>Holding PWR: the DISPLAY POWER OFF bar fills</figcaption></figure>
+<figure class="fig"><div class="shot"><a href="img/m_hold.png" title="Open full size"><img src="img/m_hold.png" alt="Holding PWR: the DISPLAY POWER OFF bar fills, annotated with numbered markers" loading="lazy"></a></div><figcaption>Holding PWR: the DISPLAY POWER OFF bar fills</figcaption></figure>
 
 <ol class="legend">
 <li>Shown while you hold PWR; the bar fills over 2 seconds and the display switches off when it is full.</li>
@@ -223,7 +226,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <li>SELECT CARTRIDGE: see below. Then the MENU page.</li>
 </ol>
 <p>NO-GO lines are information, not faults of the add-on: NAV / POSITION without a position, DATALINK RECEIVER without datalink packets (export off on a server, for example), GCI / BULLSEYE without a bullseye in the mission.</p>
-<figure class="fig"><div class="shot"><img src="img/m_bit.png" alt="The BUILT-IN TEST checklist, annotated with numbered markers" loading="lazy"></div><figcaption>The BUILT-IN TEST checklist</figcaption></figure>
+<figure class="fig"><div class="shot"><a href="img/m_bit.png" title="Open full size"><img src="img/m_bit.png" alt="The BUILT-IN TEST checklist, annotated with numbered markers" loading="lazy"></a></div><figcaption>The BUILT-IN TEST checklist</figcaption></figure>
 
 <ol class="legend">
 <li>Test mode and the add-on's version.</li>
@@ -263,7 +266,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 </tr>
 </tbody>
 </table></div>
-<figure class="fig"><div class="shot"><img src="img/m_dtc.png" alt="SELECT CARTRIDGE, annotated with numbered markers" loading="lazy"></div><figcaption>SELECT CARTRIDGE</figcaption></figure>
+<figure class="fig"><div class="shot"><a href="img/m_dtc.png" title="Open full size"><img src="img/m_dtc.png" alt="SELECT CARTRIDGE, annotated with numbered markers" loading="lazy"></a></div><figcaption>SELECT CARTRIDGE</figcaption></figure>
 
 <ol class="legend">
 <li>Your aligned position.</li>
@@ -325,7 +328,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <p>Everything else changes with the page: read the label printed beside a button before you press it. Buttons with no label do nothing on that page.</p>
 <h2 id="menu-and-moving-between-pages">MENU and moving between pages</h2>
 <p>The MENU page (squadron badge, fuel and datalink status at the bottom) is the hub: every page is one button away, and the bottom-centre button brings you back to it from anywhere.</p>
-<figure class="fig"><div class="shot"><img src="img/m_menu.jpg" alt="The MENU page in the cockpit, annotated with numbered markers" loading="lazy"></div><figcaption>The MENU page in the cockpit</figcaption></figure>
+<figure class="fig"><div class="shot"><a href="img/m_menu.jpg" title="Open full size"><img src="img/m_menu.jpg" alt="The MENU page in the cockpit, annotated with numbered markers" loading="lazy"></a></div><figcaption>The MENU page in the cockpit</figcaption></figure>
 
 <ol class="legend">
 <li>PWR rocker: press = on, hold 2 s = off.</li>
@@ -382,7 +385,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 </ul>
 <h2 id="sa-page">SA page</h2>
 <p>The SA page is a heading-up picture around your jet in the style of the F-15 SIT page: datalink contacts, ground threats, your route, markpoints and the cartridge's drawings, optionally over DCS's own charts.</p>
-<figure class="fig"><div class="shot"><img src="img/m_sa.png" alt="SA page with INTC running, annotated with numbered markers" loading="lazy"></div><figcaption>SA page with INTC running</figcaption></figure>
+<figure class="fig"><div class="shot"><a href="img/m_sa.png" title="Open full size"><img src="img/m_sa.png" alt="SA page with INTC running, annotated with numbered markers" loading="lazy"></a></div><figcaption>SA page with INTC running</figcaption></figure>
 
 <ol class="legend">
 <li>H1–H5: range and declutter buttons.</li>
@@ -468,7 +471,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <p>Both are advisory and live only on the MFD: they read what the jet and the datalink already know and never touch the autopilot, HUD, radar or weapons.</p>
 <p><strong>PICTURE (SA page right 2)</strong></p>
 <p>The contacts grouped into formations, up to five groups, nearest first. Each row shows the group, BULLS (from the bullseye) or BRAA (from you), altitude, size and type, and aspect: HOT, FLANK, BEAM or DRAG with its direction. The selected group's call is written out (for example "BULLS 045/62, 8000, HOT, HOSTILE, 2 SHIP F-16.") above a small north-up plot.</p>
-<figure class="fig"><div class="shot"><img src="img/m_pic.png" alt="PICTURE page, annotated with numbered markers" loading="lazy"></div><figcaption>PICTURE page</figcaption></figure>
+<figure class="fig"><div class="shot"><a href="img/m_pic.png" title="Open full size"><img src="img/m_pic.png" alt="PICTURE page, annotated with numbered markers" loading="lazy"></a></div><figcaption>PICTURE page</figcaption></figure>
 
 <ol class="legend">
 <li>Group count and the call format.</li>
@@ -534,7 +537,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 </ul>
 <h2 id="nav-page">NAV page</h2>
 <p>NAV steers you along the cartridge's route: put the green diamond on the centre mark and you fly the command heading (CMD) that keeps you on the planned leg.</p>
-<figure class="fig"><div class="shot"><img src="img/m_nav.png" alt="NAV page, annotated with numbered markers" loading="lazy"></div><figcaption>NAV page</figcaption></figure>
+<figure class="fig"><div class="shot"><a href="img/m_nav.png" title="Open full size"><img src="img/m_nav.png" alt="NAV page, annotated with numbered markers" loading="lazy"></a></div><figcaption>NAV page</figcaption></figure>
 
 <ol class="legend">
 <li>Name of the loaded plan.</li>
@@ -625,7 +628,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <li>Left 4: course to the active steerpoint. Left 5: heading bug to your present heading.</li>
 <li>Right 1 TCN OFF: switches the TACAN pointer off again (shown while a channel is set).</li>
 </ul>
-<figure class="fig"><div class="shot"><img src="img/m_hsi.png" alt="HSI page, annotated with numbered markers" loading="lazy"></div><figcaption>HSI page</figcaption></figure>
+<figure class="fig"><div class="shot"><a href="img/m_hsi.png" title="Open full size"><img src="img/m_hsi.png" alt="HSI page, annotated with numbered markers" loading="lazy"></a></div><figcaption>HSI page</figcaption></figure>
 
 <ol class="legend">
 <li>Steerpoint bearing and range.</li>
@@ -642,7 +645,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <li>SYNC (L5): put the bug on your current heading.</li>
 </ol>
 <p><strong>COM/NAV (MENU left 4):</strong> the R-862 channel and frequency, the 20 presets (channels 0 to 19), RSBN / ILS / ADF / GCI channels and the nearest RSBN / PRMG stations. Read only: the MiG-29 keeps its own preset frequencies.</p>
-<figure class="fig"><div class="shot"><img src="img/m_comnav.png" alt="COM/NAV page, annotated with numbered markers" loading="lazy"></div><figcaption>COM/NAV page</figcaption></figure>
+<figure class="fig"><div class="shot"><a href="img/m_comnav.png" title="Open full size"><img src="img/m_comnav.png" alt="COM/NAV page, annotated with numbered markers" loading="lazy"></a></div><figcaption>COM/NAV page</figcaption></figure>
 
 <ol class="legend">
 <li>Radio channel and frequency.</li>
@@ -657,7 +660,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <li>Left 1 BINGO: type kg on the UFCP keypad, ENT. Below bingo, a BINGO FUEL alert shows on every page.</li>
 <li>Left 2 HOME: cycles through the plan's airfields and your markpoints, with fuel needed to get there and fuel on arrival. With no airfield in the cartridge and no markpoint it shows HOME -- (common on air starts): drop a markpoint over your base, or load a cartridge that has your home airfield.</li>
 </ul>
-<figure class="fig"><div class="shot"><img src="img/m_fpas.png" alt="FPAS page, annotated with numbered markers" loading="lazy"></div><figcaption>FPAS page</figcaption></figure>
+<figure class="fig"><div class="shot"><a href="img/m_fpas.png" title="Open full size"><img src="img/m_fpas.png" alt="FPAS page, annotated with numbered markers" loading="lazy"></a></div><figcaption>FPAS page</figcaption></figure>
 
 <ol class="legend">
 <li>Total fuel.</li>
@@ -670,7 +673,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <li>HOME (L2).</li>
 </ol>
 <p><strong>SMS (MENU right 2):</strong> what hangs on each station, gun rounds, chaff and flares. Amber = selected station.</p>
-<figure class="fig"><div class="shot"><img src="img/m_sms.png" alt="SMS page, annotated with numbered markers" loading="lazy"></div><figcaption>SMS page</figcaption></figure>
+<figure class="fig"><div class="shot"><a href="img/m_sms.png" title="Open full size"><img src="img/m_sms.png" alt="SMS page, annotated with numbered markers" loading="lazy"></a></div><figcaption>SMS page</figcaption></figure>
 
 <ol class="legend">
 <li>Station list.</li>
@@ -684,7 +687,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <li>Members are remembered between flights.</li>
 <li>Fuel and weapons of other jets are not available outside single player, so FLT shows radar / jammer / alive instead.</li>
 </ul>
-<figure class="fig"><div class="shot"><img src="img/m_flt.png" alt="FLT page, annotated with numbered markers" loading="lazy"></div><figcaption>FLT page</figcaption></figure>
+<figure class="fig"><div class="shot"><a href="img/m_flt.png" title="Open full size"><img src="img/m_flt.png" alt="FLT page, annotated with numbered markers" loading="lazy"></a></div><figcaption>FLT page</figcaption></figure>
 
 <ol class="legend">
 <li>Flight members on the right buttons.</li>
@@ -698,7 +701,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <li>Amber = main threat, red ring = locked on you, flashing ring and banner = missile launch.</li>
 <li>Other threats show their direction on the outer ring.</li>
 </ul>
-<figure class="fig"><div class="shot"><img src="img/m_rwr.png" alt="RWR page (SPO-15), annotated with numbered markers" loading="lazy"></div><figcaption>RWR page (SPO-15)</figcaption></figure>
+<figure class="fig"><div class="shot"><a href="img/m_rwr.png" title="Open full size"><img src="img/m_rwr.png" alt="RWR page (SPO-15), annotated with numbered markers" loading="lazy"></a></div><figcaption>RWR page (SPO-15)</figcaption></figure>
 
 <ol class="legend">
 <li>SPO-15 state and how many sectors are lit (SPO-15 OFF or CLEAR when there is nothing).</li>
@@ -783,7 +786,82 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 </tbody>
 </table></div>
 <p>SA page right 1 GEO shows or hides them; threats seen over the datalink stay. "LOADED \<name> +GEO" confirms a cartridge with drawings.</p>
-<p><strong>The DTC Planner</strong> is the single <code>Vitezovi DTC Planner.html</code> file in the package: double-click it, it works offline with every map built in. Plan the route and drawings, then SAVE writes the <code>.dtc</code> and <code>.geo.txt</code> to Downloads; move them to <code>Saved Games\DCS\DTC</code>.</p>
+<p><strong>The DTC Planner</strong> makes these files for you: see <a href="#using-the-dtc-planner">Using the DTC Planner</a> below.</p>
+<h2 id="using-the-dtc-planner">Using the DTC Planner</h2>
+<p>The planner is the single file <code>Vitezovi DTC Planner.html</code> in the <code>Vitezovi DTC Planner</code> folder of the download. Double-click it and it opens in Chrome or Edge. It works offline with every DCS map built in, so you can pass the file on to squad mates as it is. It remembers the last cartridge you worked on in that browser.</p>
+<p><strong>The screen</strong></p>
+<figure class="fig wide"><div class="shot"><a href="img/dtc_overview.png" title="Open full size"><img src="img/dtc_overview.png" alt="The DTC Planner with the sample cartridge, annotated with numbered markers" loading="lazy"></a></div><figcaption>The DTC Planner with the sample cartridge</figcaption></figure>
+
+<ol class="legend">
+<li><strong>New</strong> (choose the map and a name), <strong>Open…</strong> (load a <code>.dtc</code> and its <code>.geo.txt</code>; select both files together) and <strong>Sample</strong> (the VITEZOVI GCI NETWORK example).</li>
+<li><strong>Save cartridge:</strong> writes <code>NAME.dtc</code>, plus <code>NAME.geo.txt</code> when there are drawings, to your Downloads folder.</li>
+<li><strong>Copy .dtc text:</strong> puts the cartridge text on the clipboard instead.</li>
+<li><strong>SELECT:</strong> drag route points and drawings to move them; drag empty map to pan. Delete or Backspace removes what is selected, Esc deselects.</li>
+<li><strong>POINT:</strong> click the map to add a route point after the selected one.</li>
+<li><strong>RING / RING?:</strong> press on the threat's position and drag out the radius (the live radius shows at the bottom). RING is a confirmed threat (red), RING? a suspected one (pink, dashed). A single click makes a 20 km / 10 km ring.</li>
+<li><strong>FLOT / BORDER / AREA:</strong> click corner by corner, then double-click or press Enter to finish (a line needs 2 points, an area 3). Esc cancels.</li>
+<li><strong>Route filter:</strong> ALL, or only flight member 1–4's route.</li>
+<li><strong>Map layers:</strong> F10, TACTICAL, RELIEF, or DCS CHARTS. For DCS CHARTS, pick your map's <code>RasterCharts</code> folder (for example <code>DCS World\Mods\terrains\Caucasus\RasterCharts</code>). It is read on your PC, nothing is uploaded.</li>
+<li><strong>NAVAIDS:</strong> beacons, VOR/TACAN and RSBN on the map on or off.</li>
+<li><strong>Tabs</strong> for the side panel: ROUTE, NAV, RADIOS, DRAWINGS, SA.</li>
+<li><strong>Cartridge name:</strong> also the file name and the name on the MFD's cartridge card.</li>
+<li><strong>Program P1–P3:</strong> a MiG-29 cartridge holds three programs. With "Same route, waypoints and nav aids in all programs" ticked they share everything; untick it to edit each program on its own.</li>
+<li><strong>Route points:</strong> name (keep it short), the flights it belongs to (1–4), X, and altitude in metres. No tick = on every flight's route. X keeps a point out of all four member routes; it stays on ALL and can be picked by hand on the MFD's RTE page.</li>
+<li><strong>Jet waypoints:</strong> the three route points the jet's own navigation gets (WPT 1–3), used when the MFD mod is off or in old-style missions.</li>
+<li><strong>Legend</strong> of the line styles.</li>
+</ol>
+<p>Mouse wheel zooms; + / − and ⤢ (fit the cartridge) are at the top right of the map.</p>
+<p><strong>Making a cartridge, step by step</strong></p>
+<figure class="fig"><div class="shot"><a href="img/dtc_new.png" title="Open full size"><img src="img/dtc_new.png" alt="New cartridge: map and name, annotated with numbered markers" loading="lazy"></a></div><figcaption>New cartridge: map and name</figcaption></figure>
+
+<ol class="legend">
+<li><strong>New:</strong> choose the map and type a name, then <strong>Create</strong>. A cartridge only works on the map it is made for.</li>
+<li><strong>Route:</strong> pick <strong>POINT</strong> and click the route in flying order. Then name each point and set its altitude in ROUTE POINTS.</li>
+<li><strong>Member routes (optional):</strong> tick 1–4 on the points each flight member flies, and check each route with FLT 1–4 above the map.</li>
+<li><strong>NAV tab:</strong> airfields and RSBN (below).</li>
+<li><strong>RADIOS tab:</strong> radio presets and ADF homers (below).</li>
+<li><strong>Drawings (optional):</strong> RING, RING?, FLOT, BORDER and AREA on the map, then name them in the DRAWINGS tab.</li>
+<li><strong>SA tab:</strong> check what the SA page will show.</li>
+<li><strong>Save cartridge</strong> and move the file(s) from Downloads into <code>Saved Games\DCS\DTC</code>. Restart the mission, then pick the cartridge at start-up or with NAV page right 1 LOAD.</li>
+</ol>
+<p>Save refuses to write a cartridge with an empty route or a radio preset out of range, and tells you why at the bottom of the window. To change a cartridge later, <strong>Open…</strong> its <code>.dtc</code> together with its <code>.geo.txt</code>. Cartridges made in DCS's own DTC editor open too.</p>
+<p><strong>NAV tab: airfields and RSBN</strong></p>
+<figure class="fig"><div class="shot"><a href="img/dtc_nav.png" title="Open full size"><img src="img/dtc_nav.png" alt="NAV tab, annotated with numbered markers" loading="lazy"></a></div><figcaption>NAV tab</figcaption></figure>
+
+<ol class="legend">
+<li>Airfields ARD 1–3: the jet's three aerodromes.</li>
+<li>Runway to land on.</li>
+<li>The cartridge's approach channel field; -1 leaves it empty, as DCS does.</li>
+<li>RSBN 1–3: only the stations on this map are offered.</li>
+</ol>
+<p><strong>RADIOS tab: presets and ADF</strong></p>
+<figure class="fig"><div class="shot"><a href="img/dtc_radios.png" title="Open full size"><img src="img/dtc_radios.png" alt="RADIOS tab, annotated with numbered markers" loading="lazy"></a></div><figcaption>RADIOS tab</figcaption></figure>
+
+<ol class="legend">
+<li>Same radio presets in all three programs.</li>
+<li>Presets CH 0–19 in MHz (100–149.975 or 220–399.975). The COM/NAV page shows them in flight.</li>
+<li>Same ADF in all three programs.</li>
+<li>ADF channels 1–4: outer and inner homer in kHz.</li>
+<li>FILL FROM: fill both homers from an airfield approach or a beacon in one go.</li>
+</ol>
+<p><strong>DRAWINGS tab</strong></p>
+<figure class="fig"><div class="shot"><a href="img/dtc_drawings.png" title="Open full size"><img src="img/dtc_drawings.png" alt="DRAWINGS tab, annotated with numbered markers" loading="lazy"></a></div><figcaption>DRAWINGS tab</figcaption></figure>
+
+<ol class="legend">
+<li>Each drawing with its name: click the name to change it. The name is shown on the SA page.</li>
+<li>Delete the drawing.</li>
+<li>The <code>.geo.txt</code> file exactly as it will be saved (the same format as in the table above).</li>
+<li>Copy the text, for example to paste into a <code>.geo.txt</code> you edit by hand.</li>
+</ol>
+<p><strong>SA tab: preview</strong></p>
+<figure class="fig"><div class="shot"><a href="img/dtc_sa.png" title="Open full size"><img src="img/dtc_sa.png" alt="SA tab, annotated with numbered markers" loading="lazy"></a></div><figcaption>SA tab</figcaption></figure>
+
+<ol class="legend">
+<li><strong>At:</strong> view the route from this point, heading towards the next one.</li>
+<li>Range 20, 40 or 80 km.</li>
+<li>GEO on / off, like SA page right 1 in the jet.</li>
+<li>The SA page as it will look, heading up. Live threats from the jet's datalink are not shown here; in the jet they always stay on.</li>
+</ol>
 <h2 id="options-settings-and-troubleshooting">Options, settings and troubleshooting</h2>
 <p><strong>Options</strong> (DCS Options &gt; Special &gt; MIG-29AM &gt; "MiG-29 WW MFD"). They are read when a mission loads, so restart the mission after changing them. Keep KRN's own MiG29 box ticked: it switches the whole cockpit mod on.</p>
 <div class="tbl"><table>
