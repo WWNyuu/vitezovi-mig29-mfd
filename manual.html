@@ -175,7 +175,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
   <nav aria-label="Site">
     <a href="./">Overview</a>
     <a href="manual.html" aria-current="page">Pilot manual</a>
-    <a href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.7.1.zip">Download v1.7.1</a>
+    <a href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.7.3.zip">Download v1.7.3</a>
     <a href="https://files.digitalcombatsimulator.com/en/files/3350140/">KRN's cockpit mod</a>
   </nav>
 </div></header>
@@ -183,7 +183,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
   <aside class="toc" aria-label="Contents"><b>Contents</b><ol><li><a href="#before-you-fly">Before you fly</a></li><li><a href="#power-and-start-up">Power and start-up</a></li><li><a href="#the-bezel">The bezel</a></li><li><a href="#menu-and-moving-between-pages">MENU and moving between pages</a></li><li><a href="#sa-page">SA page</a></li><li><a href="#picture-and-intc">PICTURE and INTC</a></li><li><a href="#nav-page">NAV page</a></li><li><a href="#hsi-com-nav-fpas-sms-flt-and-rwr">HSI, COM/NAV, FPAS, SMS, FLT and RWR</a></li><li><a href="#ufcp-buttons-and-the-stp-switch">UFCP buttons and the STP switch</a></li><li><a href="#data-cartridges-drawings-and-the-dtc-planner">Data cartridges, drawings and the DTC Planner</a></li><li><a href="#using-the-dtc-planner">Using the DTC Planner</a></li><li><a href="#options-settings-and-troubleshooting">Options, settings and troubleshooting</a></li></ol></aside>
   <article class="doc">
     <h1>Vitezovi MiG-29 MFD Pilot Manual</h1>
-    <p>How to fly with the Vitezovi MiG-29 MFD add-on v1.7.1: one MFD with situational awareness, navigation, intercept, fuel, stores and RWR pages, on top of KRN MODS' MiG-29A(M) Cockpit Modernization.</p>
+    <p>How to fly with the Vitezovi MiG-29 MFD add-on v1.7.3: one MFD with situational awareness, navigation, intercept, fuel, stores and RWR pages, on top of KRN MODS' MiG-29A(M) Cockpit Modernization.</p>
 <h2 id="before-you-fly">Before you fly</h2>
 <p>You need two things installed before the add-on: the DCS MiG-29A Fulcrum module and KRN MODS' "MiG-29A(M) Cockpit Modernization" V1.0.3, unzipped into <code>Saved Games\DCS\Mods\tech</code> as KRN describes.</p>
 <p>Download KRN's mod from its release page: <a href="https://files.digitalcombatsimulator.com/en/files/3350140/">MiG-29A(M) Cockpit Modernization on DCS User Files</a>.</p>
@@ -206,14 +206,15 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <p>The MFD runs on the jet's DC power and has its own power button: the top-left rocker on the bezel, labelled PWR.</p>
 <ul>
 <li><strong>On:</strong> press PWR once. It needs jet power (battery switch on, or a generator running).</li>
-<li><strong>Off:</strong> hold PWR for 2 seconds. A "DISPLAY POWER OFF" bar fills while you hold; let go early and nothing happens.</li>
+<li><strong>Off:</strong> hold PWR until the "DISPLAY POWER OFF" bar is full (2 seconds) and it reads RELEASE TO SWITCH OFF, then let go: the display switches off when you release. Let go before the bar is full and nothing happens.</li>
 <li><strong>Hot start and air start:</strong> the MFD is already on.</li>
 <li><strong>Cold start:</strong> the screen stays dark until the battery is on and you press PWR.</li>
+<li><strong>UFCP:</strong> comes on with the Aircraft Systems Supply switch on the System Power Panel (battery or ground power on first). It takes a few seconds to come on and to go off.</li>
 </ul>
 <figure class="fig"><div class="shot"><a href="img/m_hold.png" title="Open full size"><img src="img/m_hold.png" alt="Holding PWR: the DISPLAY POWER OFF bar fills, annotated with numbered markers" loading="lazy"></a></div><figcaption>Holding PWR: the DISPLAY POWER OFF bar fills</figcaption></figure>
 
 <ol class="legend">
-<li>Shown while you hold PWR; the bar fills over 2 seconds and the display switches off when it is full.</li>
+<li>Shown while you hold PWR; the bar fills over 2 seconds. When it is full it reads RELEASE TO SWITCH OFF, and the display switches off when you let go.</li>
 <li>Let go before it is full and nothing happens.</li>
 </ol>
 <p><strong>The start-up (about 16 seconds)</strong></p>
@@ -301,7 +302,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <tr>
 <td>PWR</td>
 <td>Top-left rocker</td>
-<td>Press = on, hold 2 s = off</td>
+<td>Press = on; hold 2 s, then release = off</td>
 </tr>
 <tr>
 <td>MENU</td>
@@ -331,7 +332,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <figure class="fig"><div class="shot"><a href="img/m_menu.jpg" title="Open full size"><img src="img/m_menu.jpg" alt="The MENU page in the cockpit, annotated with numbered markers" loading="lazy"></a></div><figcaption>The MENU page in the cockpit</figcaption></figure>
 
 <ol class="legend">
-<li>PWR rocker: press = on, hold 2 s = off.</li>
+<li>PWR rocker: press = on, hold 2 s and release = off.</li>
 <li>Left page buttons (SA, PIC, NAV, HSI, COM/NAV).</li>
 <li>Right page buttons (FPAS, SMS, FLT, RWR, OPT).</li>
 <li>Page title.</li>
@@ -593,9 +594,9 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 </tr>
 </tbody>
 </table></div>
-<p>Bottom 1 ADD and bottom 2 DEL add and remove typed-in waypoints.</p>
+<p>Bottom 1 ADD adds a typed-in waypoint, bottom 2 DEL deletes the active steerpoint and bottom 4 EDIT opens the route editor.</p>
 <p><strong>Top block:</strong> the selected steerpoint and its note, bearing and range, time to go and ETA, the leg course (DTK) or DIR, cross-track error and the steering bar. Off the leg, CMD brings you back onto it at up to 45 degrees. All bearings are true (T) and match the SA page, HSI and UFCP.</p>
-<p><strong>Route list:</strong> the cartridge's whole route plus its airfields, with bearing and distance from the jet and the ETA along the route.</p>
+<p><strong>Route list:</strong> the route you fly (the cartridge's route with your edits) plus its airfields, with bearing and distance from the jet and the ETA along the route. PREV / NEXT, AUTO and the UFCP STP switch step through every point, typed-in ones included.</p>
 <p><strong>Which steerpoint is active:</strong> whatever you used last wins between PREV / NEXT, the UFCP STP switch and the jet's NAV panel WP-A/D buttons. In AUTO the next point is taken when you are within 3 km or have passed abeam.</p>
 <p><strong>Time on target</strong></p>
 <ol>
@@ -606,20 +607,68 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 </ol>
 <p>Fuel at the TOT point and at the last steerpoint turns amber when it is below bingo or reserve. Ground speed needs about 2 seconds after opening the page.</p>
 <p><strong>Member routes (RTE, left 5)</strong></p>
-<p>One cartridge can hold every flight member's route: in DCS's DTC editor, start a point's note with member numbers ("1 IP", "12 TGT", "1234 RV"; untagged = everyone).</p>
+<p>One cartridge can hold every flight member's route: in DCS's DTC editor, start a point's note with member numbers ("1 IP", "12 TGT", "1234 RV"; untagged = everyone). Tags are the digits 1–5, each once, followed by a space or the end of the note; 5 is the planner's X column. A note like "250 KTS" stays a name.</p>
 <ul>
 <li>Left 1 to 4: member 1 to 4's route.</li>
 <li>Right 1 to 5: add or remove that point by hand; the number in [ ] is its place in the route.</li>
 <li>Bottom 1 / 2 page, bottom 4 CLR, bottom 5 ALL, left 5 DONE.</li>
 </ul>
-<p>Changing the route clears TOTs and typed-in waypoints.</p>
+<p>Picking a different route clears TOTs and your edits. DONE without a change keeps them.</p>
 <p><strong>Typed-in waypoints</strong></p>
 <ul>
 <li>Bottom 1 ADD = latitude / longitude entry; ADD again = MGRS; a third time = cancel. CLR deletes the last digit.</li>
 <li>Lat / long: 13 digits DDMMmm DDDMMmm, for example 4155850415172 = N 41 55.85 E 041 51.72. N/S and E/W come from where the jet is.</li>
 <li>MGRS: easting and northing in the jet's own 100 km square (shown on the line), 10 digits, or 4 / 6 / 8 digits then ENT.</li>
-<li>The point goes in after the selected steerpoint and is flown to directly. Bottom 2 DEL removes it.</li>
+<li>The point goes in after the selected steerpoint and is flown to directly.</li>
+<li>Bottom 2 DEL deletes the active steerpoint: a typed-in point or one from the cartridge.</li>
 </ul>
+<p><strong>Editing the route (EDIT, bottom 4)</strong></p>
+<figure class="fig"><div class="shot"><a href="img/m_edit.jpg" title="Open full size"><img src="img/m_edit.jpg" alt="EDIT page in the cockpit" loading="lazy"></a></div><figcaption>EDIT page in the cockpit</figcaption></figure>
+
+<p>The route you fly is your own copy of the cartridge (or mission) route. EDIT changes that copy with its own cursor, so the active steerpoint stays while you edit en route. The <code>.dtc</code> file is never changed: LOAD (even the same cartridge), a different route on RTE or a mission restart start from the cartridge again. A short power cut keeps your edits.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Button</th>
+<th>Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Right 1 to 5</td>
+<td>Put the cursor (green) on that point</td>
+</tr>
+<tr>
+<td>Bottom 1 PREV / 2 NEXT</td>
+<td>Page before / after (5 points a page)</td>
+</tr>
+<tr>
+<td>Left 1 MV UP / 2 MV DN</td>
+<td>Move the point one place earlier / later</td>
+</tr>
+<tr>
+<td>Left 3 POS</td>
+<td>New position for the point: lat / long, POS again = MGRS, a third time = cancel</td>
+</tr>
+<tr>
+<td>Left 4 ADD</td>
+<td>New point after the cursor (same entry)</td>
+</tr>
+<tr>
+<td>Bottom 4 DEL</td>
+<td>Press twice: delete the point under the cursor</td>
+</tr>
+<tr>
+<td>Bottom 5 STP</td>
+<td>Fly to the point under the cursor</td>
+</tr>
+<tr>
+<td>Left 5 DONE</td>
+<td>Back to NAV</td>
+</tr>
+</tbody>
+</table></div>
+<p>The top lines show the cursor point's name, MGRS and lat / long; the active steerpoint is cyan with STP, and moved points get a <code>*</code>. TOTs stay with their points when you move them.</p>
 <p><strong>RSBN view (right 5):</strong> the cartridge's RSBN 1 to 3 and the nearest map stations with bearing and range, NO RX beyond the radio horizon, and the jet's RSBN channel in green.</p>
 <h2 id="hsi-com-nav-fpas-sms-flt-and-rwr">HSI, COM/NAV, FPAS, SMS, FLT and RWR</h2>
 <p><strong>HSI (MENU left 3):</strong> a NATO-style HSI with heading bug, course and TACAN.</p>
@@ -715,6 +764,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 </ol>
 <h2 id="ufcp-buttons-and-the-stp-switch">UFCP buttons and the STP switch</h2>
 <p>Three UFCP keys belong to the add-on (their labels are changed on the panel) and the keypad types values for the MFD pages.</p>
+<p>The UFCP is powered by the Aircraft Systems Supply switch (System Power Panel, battery or ground power on first); it takes a few seconds to come on and to go off. The add-on's lines on it follow the same power.</p>
 <div class="tbl"><table>
 <thead>
 <tr>
@@ -794,7 +844,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 
 <ol class="legend">
 <li><strong>New</strong> (choose the map and a name), <strong>Open…</strong> (load a <code>.dtc</code> and its <code>.geo.txt</code>; select both files together) and <strong>Sample</strong> (the VITEZOVI GCI NETWORK example).</li>
-<li><strong>Save cartridge:</strong> writes <code>NAME.dtc</code>, plus <code>NAME.geo.txt</code> when there are drawings, to your Downloads folder.</li>
+<li><strong>Save cartridge:</strong> writes <code>NAME.dtc</code> to your Downloads folder, or <code>NAME.zip</code> (holding <code>NAME.dtc</code> and <code>NAME.geo.txt</code>) when the cartridge has drawings.</li>
 <li><strong>Copy .dtc text:</strong> puts the cartridge text on the clipboard instead.</li>
 <li><strong>SELECT:</strong> drag route points and drawings to move them; drag empty map to pan. Delete or Backspace removes what is selected, Esc deselects.</li>
 <li><strong>POINT:</strong> click the map to add a route point after the selected one.</li>
@@ -822,7 +872,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <li><strong>RADIOS tab:</strong> radio presets and ADF homers (below).</li>
 <li><strong>Drawings (optional):</strong> RING, RING?, FLOT, BORDER and AREA on the map, then name them in the DRAWINGS tab.</li>
 <li><strong>SA tab:</strong> check what the SA page will show.</li>
-<li><strong>Save cartridge</strong> and move the file(s) from Downloads into <code>Saved Games\DCS\DTC</code>. Restart the mission, then pick the cartridge at start-up or with NAV page right 1 LOAD.</li>
+<li><strong>Save cartridge</strong> and move the <code>.dtc</code> (or both files from the <code>.zip</code>) from Downloads into <code>Saved Games\DCS\DTC</code>. Restart the mission, then pick the cartridge at start-up or with NAV page right 1 LOAD.</li>
 </ol>
 <p>Save refuses to write a cartridge with an empty route or a radio preset out of range, and tells you why at the bottom of the window. To change a cartridge later, <strong>Open…</strong> its <code>.dtc</code> together with its <code>.geo.txt</code>. Cartridges made in DCS's own DTC editor open too.</p>
 <p><strong>NAV tab: airfields and RSBN</strong></p>
@@ -891,7 +941,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 </tbody>
 </table></div>
 <p><strong>Brightness:</strong> top-right rocker, left click brighter, right click darker. D/N switch bottom right: left click day, right click night (separate levels).</p>
-<p><strong>Settings file</strong> (text size, keypad mapping, ranges, power and start-up): <code>Saved Games\DCS\Mods\tech\MiG-29A(M) Cockpit Modernization - KRN MODS V1.0.3\Cockpit\Scripts\DL\dl_config.lua</code>. For example <code>boot_skip = true</code> keeps the power button but skips the start-up screens; <code>power_mode = "always"</code> keeps the MFD always on.</p>
+<p><strong>Your settings</strong> (text size, keypad mapping, ranges, units, power and start-up) go into <code>Saved Games\DCS\Vitezovi-MFD-Addon\settings.lua</code>, one per line. The installer creates it, and updates and uninstalls never touch it. For example <code>range_units = "nm"</code>, <code>boot_skip = true</code> (keeps the power button but skips the start-up screens) or <code>power_mode = "always"</code> (MFD always on). All setting names and their defaults are listed in <code>Cockpit\Scripts\DL\dl_config.lua</code> in KRN's folder; don't edit that file, because updates replace it. Restart the mission after a change.</p>
 <p><strong>Troubleshooting</strong></p>
 <div class="tbl"><table>
 <thead>
@@ -904,6 +954,10 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <tr>
 <td>MFD stays dark on a cold start</td>
 <td>Battery on, then press PWR (top-left rocker)</td>
+</tr>
+<tr>
+<td>UFCP stays dark</td>
+<td>Aircraft Systems Supply switch on (System Power Panel), then wait a few seconds</td>
 </tr>
 <tr>
 <td>NO DL on the SA page</td>
@@ -920,6 +974,14 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <tr>
 <td>Installer reports KRN files not original</td>
 <td>Delete KRN's folder, unzip KRN's mod again, run <code>INSTALL.bat</code></td>
+</tr>
+<tr>
+<td>Installer says KRN's mod has changed (newer version?)</td>
+<td>This add-on is made for KRN V1.0.3 and never writes over a newer KRN; wait for an add-on update, or reinstall KRN V1.0.3</td>
+</tr>
+<tr>
+<td>Installer stopped with a message about antivirus, a file in use or OneDrive</td>
+<td>Do what the message says, then run <code>INSTALL.bat</code> again; it finishes the job (<code>UNINSTALL.bat</code> undoes it)</td>
 </tr>
 <tr>
 <td>Anything else</td>

@@ -153,13 +153,13 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
   <nav aria-label="Site">
     <a href="./" aria-current="page">Overview</a>
     <a href="manual.html">Pilot manual</a>
-    <a href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.7.1.zip">Download v1.7.1</a>
+    <a href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.7.3.zip">Download v1.7.3</a>
     <a href="https://files.digitalcombatsimulator.com/en/files/3350140/">KRN's cockpit mod</a>
   </nav>
 </div></header>
 <div class="ctrl"><div class="wrap">
   <span>BULLETIN <b>127 FAS / MFD-1</b></span>
-  <span>REV <b>1.7.1</b></span>
+  <span>REV <b>1.7.3</b></span>
   <span>AIRCRAFT <b>MiG-29A FULCRUM</b></span>
   <span>BASE <b>KRN MODS COCKPIT MODERNIZATION V1.0.3</b></span>
 </div></div>
@@ -171,7 +171,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
     <p class="lead">A modern multifunction display for the MiG-29A in DCS: a datalink situation page, intercept steering, route navigation with time on target, fuel planning, stores, RWR and a full power-up sequence. All of it runs on the retrofit MFD of KRN MODS' modernized cockpit.</p>
     <p class="req"><strong>Add-on, not a replacement.</strong> Needs the DCS MiG-29A Fulcrum module and KRN MODS' "MiG-29A(M) Cockpit Modernization" V1.0.3, which you <a href="https://files.digitalcombatsimulator.com/en/files/3350140/" style="color:var(--blue)">download from KRN on the DCS User Files</a>. The physical MFD, buttons and UFCP are KRN's work; this add-on brings the pages and is shared with KRN's agreement.</p>
     <div class="cta">
-      <a class="btn primary" href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.7.1.zip">Download add-on v1.7.1 <small>ZIP · 13 MB</small></a>
+      <a class="btn primary" href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.7.3.zip">Download add-on v1.7.3 <small>ZIP · 13 MB</small></a>
       <a class="btn" href="manual.html">Pilot manual</a>
     </div>
   </div>
@@ -248,7 +248,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
       <ul>
         <li>Times on target on any number of points, with the speed to fly on each leg and a speed cue.</li>
         <li>One cartridge for the whole flight: tag points by member number and each pilot picks his route.</li>
-        <li>Typed-in waypoints in lat/long or MGRS, direct-to, auto sequencing and RSBN stations in range.</li>
+        <li>Typed-in waypoints in lat/long or MGRS, an EDIT page to move, re-position, add or delete any route point in flight, direct-to, auto sequencing and RSBN stations in range.</li>
       </ul>
     </div>
   </article>
@@ -287,7 +287,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
       <h3>A display that starts like a real one</h3>
       <p>The MFD runs on the jet's DC power. On a cold start it stays dark until the battery is on and you press PWR. Then it boots: screen test, boot ROM, software log, the squadron badge, a built-in test checklist with your aligned position, and the cartridge choice.</p>
       <ul>
-        <li>Hold PWR for 2 seconds to switch off; it cannot be knocked off by accident.</li>
+        <li>Hold PWR for 2 seconds, then let go to switch off; it cannot be knocked off by accident.</li>
         <li>A short power blink keeps your page; a real power loss, like a rearm, means a full restart.</li>
         <li>Hot and air starts come up already running.</li>
       </ul>
@@ -314,7 +314,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
   </div>
   <ol class="steps">
     <li><div><b>Install KRN's mod</b><span>MiG-29A(M) Cockpit Modernization V1.0.3 from KRN MODS (<a href="https://files.digitalcombatsimulator.com/en/files/3350140/" style="color:var(--blue)">DCS User Files</a>), into Saved Games\DCS\Mods\tech.</span></div></li>
-    <li><div><b>Run INSTALL.bat</b><span><a href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.7.1.zip" style="color:var(--blue)">Download the add-on</a>, unzip it anywhere and double-click INSTALL.bat. Close DCS first.</span></div></li>
+    <li><div><b>Run INSTALL.bat</b><span><a href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.7.3.zip" style="color:var(--blue)">Download the add-on</a>, unzip it anywhere and double-click INSTALL.bat. Close DCS first.</span></div></li>
     <li><div><b>Fly</b><span>Battery on, press PWR on the MFD's top-left rocker, choose a cartridge. The <a href="manual.html" style="color:var(--blue)">pilot manual</a> explains every page.</span></div></li>
   </ol>
 </div></section>
@@ -325,6 +325,8 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
     <table>
       <thead><tr><th>Rev</th><th>Added</th></tr></thead>
       <tbody>
+        <tr><td>1.7.3</td><td>Route editing: EDIT page to move, re-position, add and delete any route point while the active steerpoint stays; NEXT and the STP switch reach typed-in points</td></tr>
+        <tr><td>1.7.2</td><td>Reliability update after a full code review: every button acts once on every PC, POWER off on release, settings.lua, own-slot mission cartridge, more maps</td></tr>
         <tr><td>1.7.1</td><td>POWER button fix for PCs that send the button's press and release with other values</td></tr>
         <tr><td>1.7</td><td>Display power from the jet, PWR button, boot sequence, built-in test, cartridge choice; published as an add-on to KRN's mod</td></tr>
         <tr><td>1.6</td><td>PICTURE page, INTC intercept steering, one true steering solution for every display, separate EXP zoom</td></tr>

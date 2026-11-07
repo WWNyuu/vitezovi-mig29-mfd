@@ -14,7 +14,7 @@ This is an add-on to KRN's mod, published with KRN's agreement. The download con
 ## Install
 
 1. Install KRN's mod into `Saved Games\DCS\Mods\tech`.
-2. Download `downloads/Vitezovi_MiG-29_MFD_Addon_v1.7.1.zip`, unzip it anywhere and double-click `INSTALL.bat` (close DCS first).
+2. Download `downloads/Vitezovi_MiG-29_MFD_Addon_v1.7.3.zip`, unzip it anywhere and double-click `INSTALL.bat` (close DCS first).
 3. In the jet: battery on, press PWR (top-left rocker on the MFD), choose a cartridge.
 
 ## Credits
