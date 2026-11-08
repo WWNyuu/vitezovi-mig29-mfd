@@ -175,7 +175,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
   <nav aria-label="Site">
     <a href="./">Overview</a>
     <a href="manual.html" aria-current="page">Pilot manual</a>
-    <a href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.7.6.zip">Download v1.7.6</a>
+    <a href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.7.7.zip">Download v1.7.7</a>
     <a href="https://files.digitalcombatsimulator.com/en/files/3350140/">KRN's cockpit mod</a>
   </nav>
 </div></header>
@@ -183,7 +183,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
   <aside class="toc" aria-label="Contents"><b>Contents</b><ol><li><a href="#before-you-fly">Before you fly</a></li><li><a href="#power-and-start-up">Power and start-up</a></li><li><a href="#the-bezel">The bezel</a></li><li><a href="#menu-and-moving-between-pages">MENU and moving between pages</a></li><li><a href="#sa-page">SA page</a></li><li><a href="#picture-and-intc">PICTURE and INTC</a></li><li><a href="#nav-page">NAV page</a></li><li><a href="#hsi-com-nav-fpas-sms-flt-and-rwr">HSI, COM/NAV, FPAS, SMS, FLT and RWR</a></li><li><a href="#ufcp-buttons-and-the-stp-switch">UFCP buttons and the STP switch</a></li><li><a href="#data-cartridges-drawings-and-the-dtc-planner">Data cartridges, drawings and the DTC Planner</a></li><li><a href="#using-the-dtc-planner">Using the DTC Planner</a></li><li><a href="#options-settings-and-troubleshooting">Options, settings and troubleshooting</a></li></ol></aside>
   <article class="doc">
     <h1>Vitezovi MiG-29 MFD Pilot Manual</h1>
-    <p>How to fly with the Vitezovi MiG-29 MFD add-on v1.7.6: one MFD with situational awareness, navigation, intercept, fuel, stores and RWR pages, on top of KRN MODS' MiG-29A(M) Cockpit Modernization.</p>
+    <p>How to fly with the Vitezovi MiG-29 MFD add-on v1.7.7: one MFD with situational awareness, navigation, intercept, fuel, stores and RWR pages, on top of KRN MODS' MiG-29A(M) Cockpit Modernization.</p>
 <h2 id="before-you-fly">Before you fly</h2>
 <p>You need two things installed before the add-on: the DCS MiG-29A Fulcrum module and KRN MODS' "MiG-29A(M) Cockpit Modernization" V1.0.3, unzipped into <code>Saved Games\DCS\Mods\tech</code> as KRN describes.</p>
 <p>Download KRN's mod from its release page: <a href="https://files.digitalcombatsimulator.com/en/files/3350140/">MiG-29A(M) Cockpit Modernization on DCS User Files</a>.</p>
@@ -469,7 +469,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <p><strong>EXP:</strong> zooms around the contact or SAM under the cursor (else the cursor point, else your jet) and follows a contact you picked. RNG + / - inside EXP zooms only the expanded view; NORM brings back your normal range, and the next EXP comes back at the zoom you used last.</p>
 <p><strong>Declutter (SYM rocker, bottom left):</strong> left click less, right click more, five steps: 1 FULL, 2 GROUP, 3 ALT only, 4 CLEAN (no labels, no route), 5 MIN (contacts and threats only). On 2 and 3, contacts of one colour on top of each other share one label ("3X 8 .81"), and a label that would cover another moves beside or under its symbol.</p>
 <p><strong>Markpoints:</strong> MARK (or the UFCP MRK button) drops one at the cursor, or under the jet when the cursor is off. Up to 5. They appear on FPAS as places to go home to.</p>
-<p><strong>Moving map:</strong> tick Moving map in Options (see the last section). Charts exist for Caucasus, Syria, Persian Gulf, Sinai, Iraq, Afghanistan, Nevada, Mariana Islands, Marianas WWII, South Atlantic, Germany Cold War and Kola.</p>
+<p><strong>Moving map:</strong> on by default; switch it in Options (see the last section). Charts exist for Caucasus, Syria, Persian Gulf, Sinai, Iraq, Afghanistan, Nevada, Mariana Islands, Marianas WWII, South Atlantic, Germany Cold War and Kola.</p>
 <h2 id="picture-and-intc">PICTURE and INTC</h2>
 <p>Both are advisory and live only on the MFD: they read what the jet and the datalink already know and never touch the autopilot, HUD, radar or weapons.</p>
 <p><strong>PICTURE (SA page right 2)</strong></p>
@@ -724,7 +724,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <li>BINGO (L1).</li>
 <li>HOME (L2).</li>
 </ol>
-<p><strong>SMS (MENU right 2):</strong> the jet seen from behind, like the stores page of the upgraded MiG-29: a line from each pylon down to its store, the store's symbol and its name. The centre tank hangs right under the jet. Amber = selected station. Under the picture: the selected station, gun rounds, chaff and flares.</p>
+<p><strong>SMS (MENU right 2):</strong> the jet seen from behind, like the stores page of the upgraded MiG-29: a line from each pylon down to its store, the store's symbol and its name. The centre tank hangs right under the jet. Amber = selected station. Under the picture: the selected station, gun rounds, chaff and flares. The selection follows the External Stores switch: INBD = stations 3 and 5; OUTBD = 2 and 6, then 1 and 7 once those are empty.</p>
 <figure class="fig"><div class="shot"><a href="img/m_sms.png" title="Open full size"><img src="img/m_sms.png" alt="SMS page, annotated with numbered markers" loading="lazy"></a></div><figcaption>SMS page</figcaption></figure>
 
 <ol class="legend">
@@ -946,7 +946,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 </tr>
 </tbody>
 </table></div>
-<p><strong>Brightness:</strong> top-right rocker, left click brighter, right click darker. D/N switch bottom right: left click day, right click night (separate levels).</p>
+<p><strong>Brightness:</strong> top-right rocker, left click brighter, right click darker. D/N switch bottom right: left click day, right click night (separate levels). Night uses its own softer colours; threats stay bright (<code>night_palette = false</code> in your settings for the day colours, dimmed).</p>
 <p><strong>Your settings</strong> (text size, keypad mapping, ranges, units, power and start-up) go into <code>Saved Games\DCS\Vitezovi-MFD-Addon\settings.lua</code>, one per line. The installer creates it, and updates and uninstalls never touch it. For example <code>range_units = "nm"</code>, <code>boot_skip = true</code> (keeps the power button but skips the start-up screens) or <code>power_mode = "always"</code> (MFD always on). All setting names and their defaults are listed in <code>Cockpit\Scripts\DL\dl_config.lua</code> in KRN's folder; don't edit that file, because updates replace it. Restart the mission after a change.</p>
 <p><strong>Timing log:</strong> add <code>perf_log = true</code> to settings.lua to see how much time the add-on takes in your sim. Every 30 s one block goes to <code>Saved Games\DCS\Logs\mig29dl_perf.log</code> (the MFD, per page), <code>mig29dl_export_perf.log</code> (the export, with your frames per second) and <code>mig29dl_hook_perf.log</code>. Remove the line to switch it off; off, it costs nothing. On busy servers the export reads DCS's list of all units only every 2 s (the datalink packet still comes every second, contacts move on by their speed in between); the export log says when it switches.</p>
 <p><strong>Troubleshooting</strong></p>
@@ -976,7 +976,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 </tr>
 <tr>
 <td>No moving map</td>
-<td>Tick Moving map in Options and restart the mission; some maps have no charts</td>
+<td>Check that Moving map is ticked in Options (DCS keeps an older choice) and restart the mission; some maps have no charts</td>
 </tr>
 <tr>
 <td>Installer reports KRN files not original</td>
