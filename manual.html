@@ -175,7 +175,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
   <nav aria-label="Site">
     <a href="./">Overview</a>
     <a href="manual.html" aria-current="page">Pilot manual</a>
-    <a href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.7.4.zip">Download v1.7.4</a>
+    <a href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.7.5.zip">Download v1.7.5</a>
     <a href="https://files.digitalcombatsimulator.com/en/files/3350140/">KRN's cockpit mod</a>
   </nav>
 </div></header>
@@ -183,7 +183,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
   <aside class="toc" aria-label="Contents"><b>Contents</b><ol><li><a href="#before-you-fly">Before you fly</a></li><li><a href="#power-and-start-up">Power and start-up</a></li><li><a href="#the-bezel">The bezel</a></li><li><a href="#menu-and-moving-between-pages">MENU and moving between pages</a></li><li><a href="#sa-page">SA page</a></li><li><a href="#picture-and-intc">PICTURE and INTC</a></li><li><a href="#nav-page">NAV page</a></li><li><a href="#hsi-com-nav-fpas-sms-flt-and-rwr">HSI, COM/NAV, FPAS, SMS, FLT and RWR</a></li><li><a href="#ufcp-buttons-and-the-stp-switch">UFCP buttons and the STP switch</a></li><li><a href="#data-cartridges-drawings-and-the-dtc-planner">Data cartridges, drawings and the DTC Planner</a></li><li><a href="#using-the-dtc-planner">Using the DTC Planner</a></li><li><a href="#options-settings-and-troubleshooting">Options, settings and troubleshooting</a></li></ol></aside>
   <article class="doc">
     <h1>Vitezovi MiG-29 MFD Pilot Manual</h1>
-    <p>How to fly with the Vitezovi MiG-29 MFD add-on v1.7.4: one MFD with situational awareness, navigation, intercept, fuel, stores and RWR pages, on top of KRN MODS' MiG-29A(M) Cockpit Modernization.</p>
+    <p>How to fly with the Vitezovi MiG-29 MFD add-on v1.7.5: one MFD with situational awareness, navigation, intercept, fuel, stores and RWR pages, on top of KRN MODS' MiG-29A(M) Cockpit Modernization.</p>
 <h2 id="before-you-fly">Before you fly</h2>
 <p>You need two things installed before the add-on: the DCS MiG-29A Fulcrum module and KRN MODS' "MiG-29A(M) Cockpit Modernization" V1.0.3, unzipped into <code>Saved Games\DCS\Mods\tech</code> as KRN describes.</p>
 <p>Download KRN's mod from its release page: <a href="https://files.digitalcombatsimulator.com/en/files/3350140/">MiG-29A(M) Cockpit Modernization on DCS User Files</a>.</p>
@@ -944,6 +944,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 </table></div>
 <p><strong>Brightness:</strong> top-right rocker, left click brighter, right click darker. D/N switch bottom right: left click day, right click night (separate levels).</p>
 <p><strong>Your settings</strong> (text size, keypad mapping, ranges, units, power and start-up) go into <code>Saved Games\DCS\Vitezovi-MFD-Addon\settings.lua</code>, one per line. The installer creates it, and updates and uninstalls never touch it. For example <code>range_units = "nm"</code>, <code>boot_skip = true</code> (keeps the power button but skips the start-up screens) or <code>power_mode = "always"</code> (MFD always on). All setting names and their defaults are listed in <code>Cockpit\Scripts\DL\dl_config.lua</code> in KRN's folder; don't edit that file, because updates replace it. Restart the mission after a change.</p>
+<p><strong>Timing log:</strong> add <code>perf_log = true</code> to settings.lua to see how much time the add-on takes in your sim. Every 30 s one block goes to <code>Saved Games\DCS\Logs\mig29dl_perf.log</code> (the MFD, per page), <code>mig29dl_export_perf.log</code> (the export, with your frames per second) and <code>mig29dl_hook_perf.log</code>. Remove the line to switch it off; off, it costs nothing. On busy servers the export reads DCS's list of all units only every 2 s (the datalink packet still comes every second, contacts move on by their speed in between); the export log says when it switches.</p>
 <p><strong>Troubleshooting</strong></p>
 <div class="tbl"><table>
 <thead>
