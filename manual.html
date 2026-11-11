@@ -175,7 +175,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
   <nav aria-label="Site">
     <a href="./">Overview</a>
     <a href="manual.html" aria-current="page">Pilot manual</a>
-    <a href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.7.7.zip">Download v1.7.7</a>
+    <a href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.7.8.zip">Download v1.7.8</a>
     <a href="https://files.digitalcombatsimulator.com/en/files/3350140/">KRN's cockpit mod</a>
   </nav>
 </div></header>
@@ -183,7 +183,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
   <aside class="toc" aria-label="Contents"><b>Contents</b><ol><li><a href="#before-you-fly">Before you fly</a></li><li><a href="#power-and-start-up">Power and start-up</a></li><li><a href="#the-bezel">The bezel</a></li><li><a href="#menu-and-moving-between-pages">MENU and moving between pages</a></li><li><a href="#sa-page">SA page</a></li><li><a href="#picture-and-intc">PICTURE and INTC</a></li><li><a href="#nav-page">NAV page</a></li><li><a href="#hsi-com-nav-fpas-sms-flt-and-rwr">HSI, COM/NAV, FPAS, SMS, FLT and RWR</a></li><li><a href="#ufcp-buttons-and-the-stp-switch">UFCP buttons and the STP switch</a></li><li><a href="#data-cartridges-drawings-and-the-dtc-planner">Data cartridges, drawings and the DTC Planner</a></li><li><a href="#using-the-dtc-planner">Using the DTC Planner</a></li><li><a href="#options-settings-and-troubleshooting">Options, settings and troubleshooting</a></li></ol></aside>
   <article class="doc">
     <h1>Vitezovi MiG-29 MFD Pilot Manual</h1>
-    <p>How to fly with the Vitezovi MiG-29 MFD add-on v1.7.7: one MFD with situational awareness, navigation, intercept, fuel, stores and RWR pages, on top of KRN MODS' MiG-29A(M) Cockpit Modernization.</p>
+    <p>How to fly with the Vitezovi MiG-29 MFD add-on v1.7.8: one MFD with situational awareness, navigation, intercept, fuel, stores and RWR pages, on top of KRN MODS' MiG-29A(M) Cockpit Modernization.</p>
 <h2 id="before-you-fly">Before you fly</h2>
 <p>You need two things installed before the add-on: the DCS MiG-29A Fulcrum module and KRN MODS' "MiG-29A(M) Cockpit Modernization" V1.0.3, unzipped into <code>Saved Games\DCS\Mods\tech</code> as KRN describes.</p>
 <p>Download KRN's mod from its release page: <a href="https://files.digitalcombatsimulator.com/en/files/3350140/">MiG-29A(M) Cockpit Modernization on DCS User Files</a>.</p>
@@ -470,6 +470,8 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <p><strong>Declutter (SYM rocker, bottom left):</strong> left click less, right click more, five steps: 1 FULL, 2 GROUP, 3 ALT only, 4 CLEAN (no labels, no route), 5 MIN (contacts and threats only). On 2 and 3, contacts of one colour on top of each other share one label ("3X 8 .81"), and a label that would cover another moves beside or under its symbol.</p>
 <p><strong>Markpoints:</strong> MARK (or the UFCP MRK button) drops one at the cursor, or under the jet when the cursor is off. Up to 5. They appear on FPAS as places to go home to.</p>
 <p><strong>Moving map:</strong> on by default; switch it in Options (see the last section). Charts exist for Caucasus, Syria, Persian Gulf, Sinai, Iraq, Afghanistan, Nevada, Mariana Islands, Marianas WWII, South Atlantic, Germany Cold War and Kola.</p>
+<p><strong>Map textures (v1.7.8):</strong> <code>INSTALL.bat</code> offers to join DCS's chart tiles of each map you have into a few big textures (it shows size and time per map and asks yes or no). With them the whole map shows at every range and the MFD page stays light. Answer no and the MFD uses DCS's own small tiles, only around where you fly; run <code>INSTALL.bat</code> again any time to build them, and again after a DCS update that changes the charts.</p>
+<p><strong>EWR picture (v1.7.8):</strong> servers that block export (the SA page shows NO DL) but send "EWR | Picture Report" and "EWR | Friendly Picture Report" text messages: the add-on reads those and draws their aircraft on the SA page, hostiles red and friendlies as friendlies, placed by bearing and range from your jet. Between reports they move along the reported heading and speed; a report is shown for 3 minutes or until the next one, and only while there is no datalink picture.</p>
 <h2 id="picture-and-intc">PICTURE and INTC</h2>
 <p>Both are advisory and live only on the MFD: they read what the jet and the datalink already know and never touch the autopilot, HUD, radar or weapons.</p>
 <p><strong>PICTURE (SA page right 2)</strong></p>
@@ -968,7 +970,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 </tr>
 <tr>
 <td>NO DL on the SA page</td>
-<td>No datalink packets: the server switches off export of world objects, or the Datalink option is off. Only your own radar is shown</td>
+<td>No datalink packets: the server switches off export of world objects, or the Datalink option is off. Only your own radar is shown, plus the server's EWR picture reports if it sends them</td>
 </tr>
 <tr>
 <td>No cartridges listed</td>
@@ -976,7 +978,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 </tr>
 <tr>
 <td>No moving map</td>
-<td>Check that Moving map is ticked in Options (DCS keeps an older choice) and restart the mission; some maps have no charts</td>
+<td>Check that Moving map is ticked in Options (DCS keeps an older choice) and restart the mission; some maps have no charts. Map black at the long ranges: run <code>INSTALL.bat</code> and answer yes to building the map textures</td>
 </tr>
 <tr>
 <td>Installer reports KRN files not original</td>
