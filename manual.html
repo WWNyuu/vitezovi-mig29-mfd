@@ -192,8 +192,10 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <li>Close DCS.</li>
 <li>Unzip the add-on anywhere (not into the Mods folder) and double-click <code>INSTALL.bat</code>.</li>
 <li>The installer finds KRN's mod, checks it is V1.0.3, keeps a copy of every KRN file it changes and installs the add-on. If it reports a problem, it has changed nothing.</li>
+<li>As its last step the installer offers to build the moving-map textures from your DCS charts (it shows size and time per map and asks yes or no; see <a href="#sa-page">SA page</a>).</li>
 <li>In DCS: Options &gt; Special &gt; MIG-29AM, keep KRN's own MiG29 box ticked.</li>
 </ol>
+<p><strong>Units:</strong> the MFD uses the units you chose for the jet itself, Options &gt; Special &gt; MiG-29 &gt; Avionics Units: Imperial gives NM, feet, knots and pounds, Metric (Native) km, metres, km/h and kg. See <a href="#options-settings-and-troubleshooting">Options, settings and troubleshooting</a> to set it for the MFD alone.</p>
 <p><strong>Remove:</strong> double-click <code>UNINSTALL.bat</code>. KRN's original files come back and KRN's mod works on its own.</p>
 <p><strong>If the installer says KRN's files are not originals</strong> (another KRN version, or the old all-in-one Vitezovi package): delete KRN's folder, unzip KRN's mod again, run <code>INSTALL.bat</code> again.</p>
 <p><strong>HOTAS binds:</strong> <code>INSTALL.bat</code> also adds every MFD and UFCP button of the add-on to the MiG-29's own controls: Options &gt; Controls &gt; MiG-29, category <strong>Vitezovi MFD</strong> (56 controls: POWER, all bezel buttons, BRT, DAY / NIGHT, SYM, the UFCP keypad, MRK / DIR / NAV, the STP switch and KRN's other UFCP buttons). A bind does exactly what a click on the button does. A DCS update or repair takes them out of the list again: run <code>INSTALL.bat</code> again (the start-up test then shows NO HOTAS BINDS on the UFCP LINK line); your own assignments come back with them. With DCS under <code>C:\Program Files</code>, right-click <code>INSTALL.bat</code> &gt; Run as administrator for the binds. If the installer says it did not find DCS's install folder, open a command prompt in the add-on folder and run <code>INSTALL.bat -DcsPath "D:\DCS World"</code> (your DCS folder).</p>
@@ -454,7 +456,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 </tr>
 <tr>
 <td>Bottom 5 MAP</td>
-<td>Moving map on / off (when enabled in Options)</td>
+<td>Moving map: MAP, MAP DIM, MAP DARK, OFF (when enabled in Options)</td>
 </tr>
 </tbody>
 </table></div>
@@ -711,8 +713,8 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 </ol>
 <p><strong>FPAS (MENU right 1):</strong> fuel and engines.</p>
 <ul>
-<li>Time and range to 500 kg, best range and endurance (estimates), engine RPM and EGT.</li>
-<li>Left 1 BINGO: type kg on the UFCP keypad, ENT. Below bingo, a BINGO FUEL alert shows on every page.</li>
+<li>Time and range to the 500 kg reserve (1,102 lb in imperial), best range and endurance (estimates), engine RPM and EGT.</li>
+<li>Left 1 BINGO: type the fuel on the UFCP keypad in the units shown (kg, or lb in imperial), ENT. Below bingo, a BINGO FUEL alert shows on every page.</li>
 <li>Left 2 HOME: cycles through the plan's airfields and your markpoints, with fuel needed to get there and fuel on arrival. With no airfield in the cartridge and no markpoint it shows HOME -- (common on air starts): drop a markpoint over your base, or load a cartridge that has your home airfield.</li>
 </ul>
 <figure class="fig"><div class="shot"><a href="img/m_fpas.png" title="Open full size"><img src="img/m_fpas.png" alt="FPAS page, annotated with numbered markers" loading="lazy"></a></div><figcaption>FPAS page</figcaption></figure>
@@ -720,7 +722,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <ol class="legend">
 <li>Total fuel.</li>
 <li>RPM and EGT.</li>
-<li>At the current setting: time to 500 kg and range.</li>
+<li>At the current setting: time to the reserve and range.</li>
 <li>Best range.</li>
 <li>Best endurance.</li>
 <li>Bingo and home figures.</li>
@@ -945,7 +947,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 </tr>
 <tr>
 <td>Moving map</td>
-<td>On: DCS's charts behind the SA page, MAP button to hide them in flight</td>
+<td>On: DCS's charts behind the SA page; the MAP button dims them in two steps or hides them in flight</td>
 </tr>
 </tbody>
 </table></div>

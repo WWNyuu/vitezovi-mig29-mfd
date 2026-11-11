@@ -168,7 +168,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
   <div>
     <div class="eyebrow">127th Vitezovi FAS · Wild Wolves</div>
     <h1>MiG-29 WW <span>MFD</span></h1>
-    <p class="lead">A modern multifunction display for the MiG-29A in DCS: a datalink situation page, intercept steering, route navigation with time on target, fuel planning, stores, RWR and a full power-up sequence. All of it runs on the retrofit MFD of KRN MODS' modernized cockpit.</p>
+    <p class="lead">A modern multifunction display for the MiG-29A in DCS: a datalink situation page, intercept steering, route navigation with time on target, fuel planning, stores, RWR and a full power-up sequence. All of it runs on the retrofit MFD of KRN MODS' modernized cockpit, in metric or imperial units as the jet itself is set.</p>
     <p class="req"><strong>Add-on, not a replacement.</strong> Needs the DCS MiG-29A Fulcrum module and KRN MODS' "MiG-29A(M) Cockpit Modernization" V1.0.3, which you <a href="https://files.digitalcombatsimulator.com/en/files/3350140/" style="color:var(--blue)">download from KRN on the DCS User Files</a>. The physical MFD, buttons and UFCP are KRN's work; this add-on brings the pages and is shared with KRN's agreement.</p>
     <div class="cta">
       <a class="btn primary" href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.8.0.zip">Download add-on v1.8.0 <small>ZIP · 13 MB</small></a>
@@ -183,7 +183,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 
 <section class="specs" aria-label="Key figures"><div class="wrap">
   <div class="spec"><div class="v">10</div><div class="k">MFD pages, plus start-up and cartridge choice</div></div>
-  <div class="spec"><div class="v">20–320<small>km</small></div><div class="k">SA page range, 5 steps</div></div>
+  <div class="spec"><div class="v">20–320<small>km</small></div><div class="k">SA page range, 5 steps (10–160 NM in imperial)</div></div>
   <div class="spec"><div class="v">12</div><div class="k">DCS maps with a moving chart behind the SA page</div></div>
   <div class="spec"><div class="v">40</div><div class="k">route points drawn on the SA page</div></div>
   <div class="spec"><div class="v">16<small>s</small></div><div class="k">cold-start boot to the cartridge choice</div></div>
@@ -205,6 +205,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
         <li>Ground threats as rings, your route, markpoints and the cartridge's FLOT, borders and areas.</li>
         <li>H1–H5 put the cursor on the nearest five hostiles; the datablock gives bearing, range, bullseye, altitude and type.</li>
         <li>EXP zooms around a contact and follows it; the SYM rocker declutters in five steps.</li>
+        <li>On servers that block export, the server's EWR picture reports (NM or km) fill the page instead.</li>
       </ul>
     </div>
   </article>
@@ -217,7 +218,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
     <div>
       <h3>Moving map</h3>
       <p>DCS's own aeronautical charts turn and slide under the symbols as you fly. Nothing is copied: the add-on reads the charts already in your DCS install, for Caucasus, Syria, Persian Gulf, Sinai, Iraq, Afghanistan, Nevada, the Marianas, South Atlantic, Germany Cold War and Kola.</p>
-      <p>One option in DCS's Special settings turns it on; the MAP button hides it in flight.</p>
+      <p>One option in DCS's Special settings turns it on; in flight the MAP button dims it in two steps or hides it, and at night the chart dims a little more by itself.</p>
     </div>
   </article>
 
@@ -264,7 +265,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
       <div class="shot"><img src="img/x07.jpg" alt="FPAS page: fuel 2886 kg, time and range to 500 kg, best range and endurance, bingo and home" width="760" height="663"></div>
       <figcaption><b>SL. 8</b>FPAS</figcaption>
       <h3>Fuel planning</h3>
-      <p>Range and time to 500 kg, best range and endurance, bingo, and fuel on arrival at home.</p>
+      <p>Range and time to the reserve, best range and endurance, bingo, and fuel on arrival at home, in kg or lb.</p>
     </figure>
     <figure>
       <div class="shot"><img src="img/x08.jpg" alt="FLT page: adding friendly aircraft, players first, to your flight" width="760" height="898"></div>
