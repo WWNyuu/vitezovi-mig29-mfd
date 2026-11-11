@@ -175,7 +175,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
   <nav aria-label="Site">
     <a href="./">Overview</a>
     <a href="manual.html" aria-current="page">Pilot manual</a>
-    <a href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.8.0.zip">Download v1.8.0</a>
+    <a href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.8.1.zip">Download v1.8.1</a>
     <a href="https://files.digitalcombatsimulator.com/en/files/3350140/">KRN's cockpit mod</a>
   </nav>
 </div></header>
@@ -183,7 +183,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
   <aside class="toc" aria-label="Contents"><b>Contents</b><ol><li><a href="#before-you-fly">Before you fly</a></li><li><a href="#power-and-start-up">Power and start-up</a></li><li><a href="#the-bezel">The bezel</a></li><li><a href="#menu-and-moving-between-pages">MENU and moving between pages</a></li><li><a href="#sa-page">SA page</a></li><li><a href="#picture-and-intc">PICTURE and INTC</a></li><li><a href="#nav-page">NAV page</a></li><li><a href="#hsi-com-nav-fpas-sms-flt-and-rwr">HSI, COM/NAV, FPAS, SMS, FLT and RWR</a></li><li><a href="#ufcp-buttons-and-the-stp-switch">UFCP buttons and the STP switch</a></li><li><a href="#data-cartridges-drawings-and-the-dtc-planner">Data cartridges, drawings and the DTC Planner</a></li><li><a href="#using-the-dtc-planner">Using the DTC Planner</a></li><li><a href="#options-settings-and-troubleshooting">Options, settings and troubleshooting</a></li></ol></aside>
   <article class="doc">
     <h1>Vitezovi MiG-29 MFD Pilot Manual</h1>
-    <p>How to fly with the Vitezovi MiG-29 MFD add-on v1.8.0: one MFD with situational awareness, navigation, intercept, fuel, stores and RWR pages, on top of KRN MODS' MiG-29A(M) Cockpit Modernization.</p>
+    <p>How to fly with the Vitezovi MiG-29 MFD add-on v1.8.1: one MFD with situational awareness, navigation, intercept, fuel, stores and RWR pages, on top of KRN MODS' MiG-29A(M) Cockpit Modernization.</p>
 <h2 id="before-you-fly">Before you fly</h2>
 <p>You need two things installed before the add-on: the DCS MiG-29A Fulcrum module and KRN MODS' "MiG-29A(M) Cockpit Modernization" V1.0.3, unzipped into <code>Saved Games\DCS\Mods\tech</code> as KRN describes.</p>
 <p>Download KRN's mod from its release page: <a href="https://files.digitalcombatsimulator.com/en/files/3350140/">MiG-29A(M) Cockpit Modernization on DCS User Files</a>.</p>
@@ -394,10 +394,10 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 
 <ol class="legend">
 <li>H1–H5: cursor to the nearest to 5th nearest hostile contact on the page.</li>
-<li>INTC heading tape (only while INTC runs).</li>
-<li>Your bullseye position.</li>
-<li>Range scale.</li>
-<li>Active steerpoint: TO, bearing and range.</li>
+<li>Heading tape: your heading boxed under the caret, numbers every 10° (04 = 040). While INTC runs, the diamond on it is the heading to steer (amber at the end = more than 25° to turn).</li>
+<li>Your own bullseye position (BE bearing/range).</li>
+<li>Range scale. Its unit (KM or NM) goes for every distance on the page.</li>
+<li>Active steerpoint: name, bearing and range.</li>
 <li>Your jet.</li>
 <li>Cursor box on a contact.</li>
 <li>SA-11 threat ring.</li>
@@ -472,6 +472,8 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <p><strong>Declutter (SYM rocker, bottom left):</strong> left click less, right click more, five steps: 1 FULL, 2 GROUP, 3 ALT only, 4 CLEAN (no labels, no route), 5 MIN (contacts and threats only). On 2 and 3, contacts of one colour on top of each other share one label ("3X 8 .81"), and a label that would cover another moves beside or under its symbol.</p>
 <p><strong>Markpoints:</strong> MARK (or the UFCP MRK button) drops one at the cursor, or under the jet when the cursor is off. Up to 5. They appear on FPAS as places to go home to.</p>
 <p><strong>Moving map:</strong> on by default; switch it in Options (see the last section). Charts exist for Caucasus, Syria, Persian Gulf, Sinai, Iraq, Afghanistan, Nevada, Mariana Islands, Marianas WWII, South Atlantic, Germany Cold War and Kola.</p>
+<p><strong>Heading tape (v1.8.1):</strong> F/A-18 style, ±25° under the H1–H5 labels, on the SA page all the time (not at SYM 5 / MIN) and on the RWR page. settings.lua <code>hdg_tape = false</code> shows it on the SA page only during INTC; <code>rwr_hdg_tape = false</code> turns it off on the RWR page.</p>
+
 <p><strong>Map dimming (v1.8.0):</strong> the MAP button (bottom right) steps the moving map MAP, MAP DIM, MAP DARK, OFF and back to MAP; the step shows for a moment at the top of the MFD. Only the chart gets darker, the symbols stay as they are. With the D/N switch at N the chart is a little darker still. Settings: <code>map_dim_steps</code> (default <code>{0, 3, 6}</code>, tenths of black over the chart) and <code>map_dim_night</code> (default 2).</p>
 <p><strong>Map textures (v1.7.8):</strong> <code>INSTALL.bat</code> offers to join DCS's chart tiles of each map you have into a few big textures (it shows size and time per map and asks yes or no). With them the whole map shows at every range and the MFD page stays light. Answer no and the MFD uses DCS's own small tiles, only around where you fly; run <code>INSTALL.bat</code> again any time to build them, and again after a DCS update that changes the charts.</p>
 <p><strong>EWR picture (v1.7.8):</strong> servers that block export (the SA page shows NO DL) but send "EWR | Picture Report" and "EWR | Friendly Picture Report" text messages: the add-on reads those and draws their aircraft on the SA page, hostiles red and friendlies as friendlies, placed by bearing and range from your jet. Between reports they move along the reported heading and speed; a report is shown for 3 minutes or until the next one, and only while there is no datalink picture. Since v1.8.0 reports in metric units (km, m, km/h) are read too.</p>
@@ -764,9 +766,9 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <figure class="fig"><div class="shot"><a href="img/m_rwr.png" title="Open full size"><img src="img/m_rwr.png" alt="RWR page (SPO-15), annotated with numbered markers" loading="lazy"></a></div><figcaption>RWR page (SPO-15)</figcaption></figure>
 
 <ol class="legend">
-<li>SPO-15 state and how many sectors are lit (SPO-15 OFF or CLEAR when there is nothing).</li>
+<li>Heading tape, the same as on the SA page.</li>
 <li>Chaff and flares left.</li>
-<li>Scope with your jet in the middle.</li>
+<li>Scope with your jet in the middle. The ring is a compass turned with your heading; the mark at the top is your nose.</li>
 <li>Main threat: its SPO-15 type letter in its sector, nearer the centre the stronger it is; red ring = locked on you.</li>
 <li>Other lit sectors on the outer ring. They carry a type letter only when one other type lamp is lit, otherwise "?".</li>
 <li>Main threat line: type letter, sector direction, power level (out of 15) and LOCK or LAUNCH.</li>
