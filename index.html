@@ -160,13 +160,13 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
     <a href="./" aria-current="page">Overview</a>
     <a href="#trailer">Trailer</a>
     <a href="manual.html">Pilot manual</a>
-    <a href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.8.1.zip">Download v1.8.1</a>
+    <a href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.8.2.zip">Download v1.8.2</a>
     <a href="https://files.digitalcombatsimulator.com/en/files/3350140/">KRN's cockpit mod</a>
   </nav>
 </div></header>
 <div class="ctrl"><div class="wrap">
   <span>BULLETIN <b>127 FAS / MFD-1</b></span>
-  <span>REV <b>1.8.1</b></span>
+  <span>REV <b>1.8.2</b></span>
   <span>AIRCRAFT <b>MiG-29A FULCRUM</b></span>
   <span>BASE <b>KRN MODS COCKPIT MODERNIZATION V1.0.3</b></span>
 </div></div>
@@ -178,7 +178,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
     <p class="lead">A modern multifunction display for the MiG-29A in DCS: a datalink situation page, intercept steering, route navigation with time on target, fuel planning, stores, RWR and a full power-up sequence. All of it runs on the retrofit MFD of KRN MODS' modernized cockpit, in metric or imperial units as the jet itself is set.</p>
     <p class="req"><strong>Add-on, not a replacement.</strong> Needs the DCS MiG-29A Fulcrum module and KRN MODS' "MiG-29A(M) Cockpit Modernization" V1.0.3, which you <a href="https://files.digitalcombatsimulator.com/en/files/3350140/" style="color:var(--blue)">download from KRN on the DCS User Files</a>. The physical MFD, buttons and UFCP are KRN's work; this add-on brings the pages and is shared with KRN's agreement.</p>
     <div class="cta">
-      <a class="btn primary" href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.8.1.zip">Download add-on v1.8.1 <small>ZIP · 13 MB</small></a>
+      <a class="btn primary" href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.8.2.zip">Download add-on v1.8.2 <small>ZIP · 13 MB</small></a>
       <a class="btn" href="manual.html">Pilot manual</a>
     </div>
   </div>
@@ -333,7 +333,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
   </div>
   <ol class="steps">
     <li><div><b>Install KRN's mod</b><span>MiG-29A(M) Cockpit Modernization V1.0.3 from KRN MODS (<a href="https://files.digitalcombatsimulator.com/en/files/3350140/" style="color:var(--blue)">DCS User Files</a>), into Saved Games\DCS\Mods\tech.</span></div></li>
-    <li><div><b>Run INSTALL.bat</b><span><a href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.8.1.zip" style="color:var(--blue)">Download the add-on</a>, unzip it anywhere and double-click INSTALL.bat. Close DCS first.</span></div></li>
+    <li><div><b>Run INSTALL.bat</b><span><a href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.8.2.zip" style="color:var(--blue)">Download the add-on</a>, unzip it anywhere and double-click INSTALL.bat. Close DCS first.</span></div></li>
     <li><div><b>Fly</b><span>Battery on, press PWR on the MFD's top-left rocker, choose a cartridge. The <a href="manual.html" style="color:var(--blue)">pilot manual</a> explains every page.</span></div></li>
   </ol>
 </div></section>
@@ -344,6 +344,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
     <table>
       <thead><tr><th>Rev</th><th>Added</th></tr></thead>
       <tbody>
+        <tr><td>1.8.2</td><td>Lighter export: on busy servers the unit list is read every 2 to 6 s depending on what it costs; no unit list while no picture page (SA, FLT, PICTURE) or intercept is on the MFD; export chain fix (no more re-wrapping while a mission loads, at most 20 per mission)</td></tr>
         <tr><td>1.8.1</td><td>F/A-18 style heading tape back on the SA page (also used by INTC) and on the RWR page; RWR ring is now a compass turning with heading; SA header tidied: BE and range scale beside the tape, steerpoint as "W2 038/28", units only on the range scale</td></tr>
         <tr><td>1.8.0</td><td>Metric or imperial on the whole MFD, following the MiG-29's own Avionics Units option (NM, ft, kt, lb); map dimming on the MAP button (MAP, DIM, DARK, OFF; darker at night); EWR reports in metric units read too; INSTALL builds the map textures last</td></tr>
         <tr><td>1.7.8</td><td>EWR picture: servers that block export but send EWR picture reports now fill the SA page; spawn crash fixed with a moving map built by INSTALL from DCS's charts (whole map at every range); lighter export chain</td></tr>
