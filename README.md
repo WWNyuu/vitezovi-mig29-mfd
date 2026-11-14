@@ -7,7 +7,7 @@ A modern multifunction display for the DCS MiG-29A Fulcrum, by the 127th Vitezov
 ## Requirements
 
 - DCS: MiG-29A Fulcrum (full-fidelity module)
-- KRN MODS' "MiG-29A(M) Cockpit Modernization" V1.0.3, from KRN's own release: https://files.digitalcombatsimulator.com/en/files/3350140/
+- KRN MODS' "MiG-29A(M) Cockpit Modernization" V1.0.3, from KRN's own release: https://files.digitalcombatsimulator.com/en/files/3350140/ His Discord https://discord.gg/DDQPEQuVg
 
 This is an add-on to KRN's mod, published with KRN's agreement. The download contains none of KRN's files; the installer patches your own copy of KRN's mod and keeps the originals, and the uninstaller puts them back.
 
