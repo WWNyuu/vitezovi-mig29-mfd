@@ -2,7 +2,7 @@
 
 A modern multifunction display for the DCS MiG-29A Fulcrum, by the 127th Vitezovi FAS "Wild Wolves". It adds a datalink SA page, PICTURE and intercept steering, NAV with time on target, fuel planning, stores, RWR and a full power-up sequence to the retrofit MFD in KRN MODS' cockpit modernization.
 
-**Website and pilot manual:** see the GitHub Pages site of this repository (`index.html`, `manual.html`).
+**Website and pilot manual:** see the GitHub Pages site of this repository (`index.html`, `manual.html`). The DTC Planner also runs online at `planner/` (the WW DTC Planner, with the F-15C SIT and Su-27 Radio planners).
 
 ## Requirements
 
