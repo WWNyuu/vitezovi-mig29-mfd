@@ -175,15 +175,15 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
   <nav aria-label="Site">
     <a href="./">Overview</a>
     <a href="manual.html" aria-current="page">Pilot manual</a>
-    <a href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.8.3.zip">Download v1.8.3</a>
+    <a href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.8.4.zip">Download v1.8.4</a>
     <a href="https://files.digitalcombatsimulator.com/en/files/3350140/">KRN's cockpit mod</a>
   </nav>
 </div></header>
 <div class="wrap man">
-  <aside class="toc" aria-label="Contents"><b>Contents</b><ol><li><a href="#before-you-fly">Before you fly</a></li><li><a href="#power-and-start-up">Power and start-up</a></li><li><a href="#the-bezel">The bezel</a></li><li><a href="#menu-and-moving-between-pages">MENU and moving between pages</a></li><li><a href="#sa-page">SA page</a></li><li><a href="#picture-and-intc">PICTURE and INTC</a></li><li><a href="#nav-page">NAV page</a></li><li><a href="#hsi-com-nav-fpas-sms-flt-and-rwr">HSI, COM/NAV, FPAS, SMS, FLT and RWR</a></li><li><a href="#ufcp-buttons-and-the-stp-switch">UFCP buttons and the STP switch</a></li><li><a href="#data-cartridges-drawings-and-the-dtc-planner">Data cartridges, drawings and the DTC Planner</a></li><li><a href="#using-the-dtc-planner">Using the DTC Planner</a></li><li><a href="#options-settings-and-troubleshooting">Options, settings and troubleshooting</a></li></ol></aside>
+  <aside class="toc" aria-label="Contents"><b>Contents</b><ol><li><a href="#before-you-fly">Before you fly</a></li><li><a href="#power-and-start-up">Power and start-up</a></li><li><a href="#the-bezel">The bezel</a></li><li><a href="#menu-and-moving-between-pages">MENU and moving between pages</a></li><li><a href="#sa-page">SA page</a></li><li><a href="#picture-and-intc">PICTURE and INTC</a></li><li><a href="#nav-page">NAV page</a></li><li><a href="#hsi-com-nav-fpas-sms-flt-and-rwr">HSI, COM/NAV, FPAS, SMS, FLT and RWR</a></li><li><a href="#loft-page">LOFT page</a></li><li><a href="#ufcp-buttons-and-the-stp-switch">UFCP buttons and the STP switch</a></li><li><a href="#data-cartridges-drawings-and-the-dtc-planner">Data cartridges, drawings and the DTC Planner</a></li><li><a href="#using-the-dtc-planner">Using the DTC Planner</a></li><li><a href="#options-settings-and-troubleshooting">Options, settings and troubleshooting</a></li></ol></aside>
   <article class="doc">
     <h1>Vitezovi MiG-29 MFD Pilot Manual</h1>
-    <p>How to fly with the Vitezovi MiG-29 MFD add-on v1.8.3: one MFD with situational awareness, navigation, intercept, fuel, stores and RWR pages, on top of KRN MODS' MiG-29A(M) Cockpit Modernization.</p>
+    <p>How to fly with the Vitezovi MiG-29 MFD add-on v1.8.4: one MFD with situational awareness, navigation, intercept, fuel, stores and RWR pages, on top of KRN MODS' MiG-29A(M) Cockpit Modernization.</p>
 <h2 id="before-you-fly">Before you fly</h2>
 <p>You need two things installed before the add-on: the DCS MiG-29A Fulcrum module and KRN MODS' "MiG-29A(M) Cockpit Modernization" V1.0.3, unzipped into <code>Saved Games\DCS\Mods\tech</code> as KRN describes.</p>
 <p>Download KRN's mod from its release page: <a href="https://files.digitalcombatsimulator.com/en/files/3350140/">MiG-29A(M) Cockpit Modernization on DCS User Files</a>.</p>
@@ -338,7 +338,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <ol class="legend">
 <li>PWR rocker: press = on, hold 2 s and release = off.</li>
 <li>Left page buttons (SA, PIC, NAV, HSI, COM/NAV).</li>
-<li>Right page buttons (FPAS, SMS, FLT, RWR, OPT).</li>
+<li>Right page buttons (FPAS, SMS, FLT, RWR, LOFT).</li>
 <li>Page title.</li>
 <li>Status line: fuel and datalink state.</li>
 <li>MENU (bottom centre): back to this page from anywhere.</li>
@@ -776,6 +776,32 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <li>All type lamps that are lit.</li>
 <li>Directions of the other lit sectors (above or below for the main threat shows under these when the SPO-15 lights it).</li>
 </ol>
+<h2 id="loft-page">LOFT page</h2>
+<p><strong>LOFT (MENU right 5, v1.8.4):</strong> cues for loft (toss) attacks with unguided weapons on the <strong>active steerpoint</strong>: S-8 and S-24B rockets, FAB, OFAB, BetAB and RBK bombs. Put the steerpoint on the target, select the stations on the SMS page as usual and fly at it at a steady speed and height. The page tells you when to pull, how far, and when to fire. It is advisory only and does not fire anything.</p>
+<figure class="fig"><div class="shot"><a href="img/m_loft.png" title="Open full size"><img src="img/m_loft.png" alt="LOFT page holding 20 degrees with IN RNG showing, annotated with numbered markers" loading="lazy"></a></div><figcaption>LOFT page, holding 20° with S-8s, IN RNG showing (drawing of the page)</figcaption></figure>
+
+<ol class="legend">
+<li>Heading tape with the steerpoint diamond.</li>
+<li>Range bar. The yellow caret is your range to the steerpoint. OPT = start the pull here for the set angle, MIN = a level shot, MAX = the best angle with a 45° pull. The scale on top rounds to a whole number of km (NM in imperial). With S-8 pods and RBK a green band above OPT marks the IN RNG zone.</li>
+<li>Pitch ladder around the jet symbol, a line every 5°. The thick yellow line is your release angle.</li>
+<li>Steering bar on your ground track (fly it to the centre) and STEER L / R in degrees (ON COURSE within 1°).</li>
+<li>Climb angle scale with your flight path angle (white caret) and the release angle bracket. All angles on this page are the flight path angle, not the nose: in a pull the nose sits 3 to 4° higher.</li>
+<li>The cue (see below), with the distance short or long underneath.</li>
+<li>Readouts: range, ground speed, flight path angle / release angle, time of flight, height above the target, level and max range.</li>
+<li>Side view: your jet, the trajectory, the target triangle and the impact cross.</li>
+<li>W+ / W− step the steerpoint, WPN picks a weapon by hand (MANUAL; press on until AUTO to follow the SMS again).</li>
+<li>ANG+ / ANG− change the release angle by 1° (5 to 45°), DEF goes back to the weapon's default (rockets 20°, bombs 25°).</li>
+</ol>
+<p>The cues, in order:</p>
+<ul>
+<li><strong>PULL IN m:ss</strong>: time to the pull point at your present ground speed. The range bar caret reaches OPT at the same moment.</li>
+<li><strong>PULL</strong>: pull up smoothly at about <strong>4 g</strong> until the yellow line sits on the jet symbol. The pull point already allows for the ground and height you cover in a 4 g pull at your speed.</li>
+<li><strong>HOLD 20</strong>: you are at the angle but still short; hold it.</li>
+<li><strong>IN RNG</strong> (S-8 pods and RBK only): a shot fired now lands within 500 m short. Start a ripple here and it walks through the target. Underneath: the distance short and the seconds to SHOOT.</li>
+<li><strong>SHOOT</strong> (green): a shot fired now lands on the steerpoint. Bombs and S-24B: within ±50 m. S-8 pods and RBK: about 60 m short to 150 m long. The page flies a fresh shot from your real speed, climb angle and height ten times a second, so a softer or harder pull still gets the right SHOOT.</li>
+<li><strong>PAST RELEASE</strong>, <strong>INSIDE LOFT</strong>, <strong>OUT OF RANGE</strong>, <strong>NO STEERPOINT</strong>, <strong>NO WEAPON</strong> (amber) explain why there is no solution.</li>
+</ul>
+<p>Weapons marked EST next to the weapon name (FAB-250, OFAB-250, BetAB, RBK) use estimated drag. S-8, S-24B and FAB-500 were checked against shots in DCS (within about 1 to 2 %). Wind is not in the calculation, and the target height comes from the map. If you are still pulling when SHOOT comes up and fire late, the shot goes long: finish the pull to the yellow line. Turn the page off with <code>loft_page = false</code> in settings.lua.</p>
 <h2 id="ufcp-buttons-and-the-stp-switch">UFCP buttons and the STP switch</h2>
 <p>Three UFCP keys belong to the add-on (their labels are changed on the panel) and the keypad types values for the MFD pages.</p>
 <p>The UFCP is powered by the Aircraft Systems Supply switch (System Power Panel, battery or ground power on first); it takes a few seconds to come on and to go off. The add-on's lines on it follow the same power.</p>
