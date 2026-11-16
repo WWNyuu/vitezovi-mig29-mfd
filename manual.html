@@ -175,7 +175,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
   <nav aria-label="Site">
     <a href="./">Overview</a>
     <a href="manual.html" aria-current="page">Pilot manual</a>
-    <a href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.8.4.zip">Download v1.8.4</a>
+    <a href="downloads/Vitezovi_MiG-29_MFD_Addon_v1.8.5.zip">Download v1.8.5</a>
     <a href="https://files.digitalcombatsimulator.com/en/files/3350140/">KRN's cockpit mod</a>
   </nav>
 </div></header>
@@ -183,7 +183,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
   <aside class="toc" aria-label="Contents"><b>Contents</b><ol><li><a href="#before-you-fly">Before you fly</a></li><li><a href="#power-and-start-up">Power and start-up</a></li><li><a href="#the-bezel">The bezel</a></li><li><a href="#menu-and-moving-between-pages">MENU and moving between pages</a></li><li><a href="#sa-page">SA page</a></li><li><a href="#picture-and-intc">PICTURE and INTC</a></li><li><a href="#nav-page">NAV page</a></li><li><a href="#hsi-com-nav-fpas-sms-flt-and-rwr">HSI, COM/NAV, FPAS, SMS, FLT and RWR</a></li><li><a href="#loft-page">LOFT page</a></li><li><a href="#ufcp-buttons-and-the-stp-switch">UFCP buttons and the STP switch</a></li><li><a href="#data-cartridges-drawings-and-the-dtc-planner">Data cartridges, drawings and the DTC Planner</a></li><li><a href="#using-the-dtc-planner">Using the DTC Planner</a></li><li><a href="#options-settings-and-troubleshooting">Options, settings and troubleshooting</a></li></ol></aside>
   <article class="doc">
     <h1>Vitezovi MiG-29 MFD Pilot Manual</h1>
-    <p>How to fly with the Vitezovi MiG-29 MFD add-on v1.8.4: one MFD with situational awareness, navigation, intercept, fuel, stores and RWR pages, on top of KRN MODS' MiG-29A(M) Cockpit Modernization.</p>
+    <p>How to fly with the Vitezovi MiG-29 MFD add-on v1.8.5: one MFD with situational awareness, navigation, intercept, fuel, stores and RWR pages, on top of KRN MODS' MiG-29A(M) Cockpit Modernization.</p>
 <h2 id="before-you-fly">Before you fly</h2>
 <p>You need two things installed before the add-on: the DCS MiG-29A Fulcrum module and KRN MODS' "MiG-29A(M) Cockpit Modernization" V1.0.3, unzipped into <code>Saved Games\DCS\Mods\tech</code> as KRN describes.</p>
 <p>Download KRN's mod from its release page: <a href="https://files.digitalcombatsimulator.com/en/files/3350140/">MiG-29A(M) Cockpit Modernization on DCS User Files</a>.</p>
@@ -198,7 +198,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <p><strong>Units:</strong> the MFD uses the units you chose for the jet itself, Options &gt; Special &gt; MiG-29 &gt; Avionics Units: Imperial gives NM, feet, knots and pounds, Metric (Native) km, metres, km/h and kg. See <a href="#options-settings-and-troubleshooting">Options, settings and troubleshooting</a> to set it for the MFD alone.</p>
 <p><strong>Remove:</strong> double-click <code>UNINSTALL.bat</code>. KRN's original files come back and KRN's mod works on its own.</p>
 <p><strong>If the installer says KRN's files are not originals</strong> (another KRN version, or the old all-in-one Vitezovi package): delete KRN's folder, unzip KRN's mod again, run <code>INSTALL.bat</code> again.</p>
-<p><strong>HOTAS binds:</strong> <code>INSTALL.bat</code> also adds every MFD and UFCP button of the add-on to the MiG-29's own controls: Options &gt; Controls &gt; MiG-29, category <strong>Vitezovi MFD</strong> (56 controls: POWER, all bezel buttons, BRT, DAY / NIGHT, SYM, the UFCP keypad, MRK / DIR / NAV, the STP switch and KRN's other UFCP buttons). A bind does exactly what a click on the button does. A DCS update or repair takes them out of the list again: run <code>INSTALL.bat</code> again (the start-up test then shows NO HOTAS BINDS on the UFCP LINK line); your own assignments come back with them. With DCS under <code>C:\Program Files</code>, right-click <code>INSTALL.bat</code> &gt; Run as administrator for the binds. If the installer says it did not find DCS's install folder, open a command prompt in the add-on folder and run <code>INSTALL.bat -DcsPath "D:\DCS World"</code> (your DCS folder).</p>
+<p><strong>HOTAS binds:</strong> <code>INSTALL.bat</code> also adds every MFD and UFCP button of the add-on to the MiG-29's own controls: Options &gt; Controls &gt; MiG-29, category <strong>Vitezovi MFD</strong> (64 controls: POWER, all bezel buttons, BRT, DAY / NIGHT, SYM, the UFCP keypad, MRK / DIR / NAV, the STP switch, KRN's other UFCP buttons and, since v1.8.5, SRS radio 2 / 3 channel and volume up / down). A bind does exactly what a click on the button does. A DCS update or repair takes them out of the list again: run <code>INSTALL.bat</code> again (the start-up test then shows NO HOTAS BINDS on the UFCP LINK line); your own assignments come back with them. With DCS under <code>C:\Program Files</code>, right-click <code>INSTALL.bat</code> &gt; Run as administrator for the binds. If the installer says it did not find DCS's install folder, open a command prompt in the add-on folder and run <code>INSTALL.bat -DcsPath "D:\DCS World"</code> (your DCS folder).</p>
 <p><strong>Updating KRN's mod later:</strong> uninstall the add-on first, update KRN, then install the add-on version made for that KRN version.</p>
 <p><strong>Test missions</strong> (installed to <code>Saved Games\DCS\Missions</code>):</p>
 <ul>
@@ -703,7 +703,7 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <li>STP (L4): set the course to the steerpoint.</li>
 <li>SYNC (L5): put the bug on your current heading.</li>
 </ol>
-<p><strong>COM/NAV (MENU left 4):</strong> the R-862 channel and frequency, the 20 presets (channels 0 to 19), RSBN / ILS / ADF / GCI channels and the nearest RSBN / PRMG stations. Read only: the MiG-29 keeps its own preset frequencies.</p>
+<p><strong>COM/NAV (MENU left 4):</strong> the R-862 channel and frequency, the 20 presets (channels 0 to 19), RSBN / ILS / ADF / GCI channels and the nearest RSBN / PRMG stations. The R-862 is read only: the MiG-29 keeps its own preset frequencies. Since v1.8.5 the page also tunes SRS radios 2 (VHF) and 3 (UHF), see below.</p>
 <figure class="fig"><div class="shot"><a href="img/m_comnav.png" title="Open full size"><img src="img/m_comnav.png" alt="COM/NAV page, annotated with numbered markers" loading="lazy"></a></div><figcaption>COM/NAV page</figcaption></figure>
 
 <ol class="legend">
@@ -713,6 +713,16 @@ td:first-child { font-family: var(--mono); color: var(--red); white-space: nowra
 <li>RSBN, ILS, ADF and GCI settings.</li>
 <li>Nearest stations.</li>
 </ol>
+<p><strong>SRS radios 2 and 3 (v1.8.5):</strong> in SRS the MiG-29 has three radios: radio 1 is the R-862 (SRS reads it from the cockpit), radio 2 is a VHF AN/ARC-186 (116.000–151.975) and radio 3 a UHF AN/ARC-164 (225.000–399.975). Radios 2 and 3 have no panel in the jet, so the COM/NAV page tunes them in SRS through its UDP command port (9040, the SRS client default). The three lines under the title show all three radios.</p>
+<ul>
+<li>Top 1 / 2 / 3 (R-862 / VHF / UHF): whose 20 presets the table shows (green). The R-862 stays read-only.</li>
+<li>On VHF or UHF: left 1 / 2 CH+ / CH− step the channel and tune SRS; left 3 / 4 VOL+ / VOL− set its SRS volume in 5 % steps (80 % at the start).</li>
+<li>Left 5 EDIT: type the selected channel's frequency on the UFCP keypad. The point goes after the third digit: 1248 = 124.800, 251 = 251.000. Six digits apply at once, otherwise ENT (or EDIT again).</li>
+<li>Right 5 SYNC: sends both radios (frequency and volume) to SRS again, e.g. after starting SRS later than DCS. Both are also sent 3 s after you spawn.</li>
+<li>Presets come from settings.lua (<code>srs_vhf_presets = {124.8, 131.0}</code>, <code>srs_uhf_presets = {251.0, 264.0}</code>) until you change them on the page; your changes, the channels and volumes are kept in <code>Saved Games\DCS\Vitezovi-MFD-Addon\srs_radios.txt</code>.</li>
+<li>Binds (category Vitezovi MFD): SRS radio 2 / 3 channel up / down and volume up / down, on any page and with the MFD off.</li>
+<li>Radios 2 and 3 are SRS "expansion" radios: the SRS server must allow them. SRS does not report back, so the page shows what it last sent. <code>srs_radios = false</code> in settings.lua turns it off, <code>srs_port</code> changes the port.</li>
+</ul>
 <p><strong>FPAS (MENU right 1):</strong> fuel and engines.</p>
 <ul>
 <li>Top row (v1.8.3): fuel at the active (next) steerpoint and the time to get there, e.g. AT W3 1840 KG 4:12 MIN. Worked out from the straight-line distance, your ground speed and the fuel flow measured now (TOT speeds are not used). LOW is added when you would arrive under the reserve; NO STEERPOINT when none is selected.</li>
